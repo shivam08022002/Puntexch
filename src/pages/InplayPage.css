@@ -1,0 +1,42 @@
+/* InplayPage Base Styles */
+.inplay-page {
+    padding: 8px;
+    padding-top: 0%;
+    background: linear-gradient(45deg, #000000, #3e2c2c); /* Gradient background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    gap: 8px;
+}
+
+
+.match-table {
+    border-collapse: collapse;
+  }
+
+
+.match-table th,
+.match-table td {
+  text-align: center;
+  padding: 2px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.match-table .odds {
+  font-weight: 600;
+  color: #2a9d8f; /* Green color for odds */
+}
+
+/* Responsive Styles */
+
+  .match-table th,
+  .match-table td {
+    padding: 2px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }

@@ -1,0 +1,154 @@
+.incoming-games-section {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+     margin: 5px 0  2px;
+}
+
+.incoming-games-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 20px);
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, #000000 0%, #12161b 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.108);
+  box-shadow: 0 4px 15px rgba(6, 5, 5, 0.2);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.game-icon {
+  font-size: clamp(20px, 3vw, 26px);
+  color: #5a90efe1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.incoming-games-header h2 {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  color: #FFD700;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.incoming-games-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Always 3 cards per row */
+  gap: 5px;
+  padding: 2px;
+}
+
+.incoming-game-card {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* Keeps the card square */
+  border-radius: 20px;
+  background: #2c3e50;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+.game-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+
+}
+
+.game-card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.game-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 70%,
+    transparent 100%
+  );
+  border-radius: 20px;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 2;
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; 
+}
+
+.incoming-game-card:hover .game-overlay {
+  opacity: 1; /* Show overlay on hover */
+  pointer-events: all; /* Allow interaction when visible */
+}
+
+.game-overlay h3 {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.game-overlay p {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.incoming-game-card:hover .game-card-inner {
+  transform: scale(1.05);
+}
+
+.incoming-game-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.incoming-game-card:hover .game-card-inner {
+  transform: rotateY(15deg);
+}
+
+@media (max-width: 1024px) {
+  .incoming-games-grid {
+    grid-template-columns: repeat(6, 1fr); /* 3 cards per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .incoming-games-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row on smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .incoming-games-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row on mobile */
+  }
+}
