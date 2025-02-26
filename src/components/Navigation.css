@@ -9,7 +9,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Same shadow as Header */
   transition: background-color 0.3s ease-in-out;
 }
-
+button{
+  -webkit-tap-highlight-color: transparent;
+}
 .nav-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -42,13 +44,13 @@
   transition: all 0.3s ease-in-out;
   background: rgba(255, 255, 255, 0.1); /* Subtle transparent background */
   transform: translateY(0); 
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-link:hover {
-  background: linear-gradient(45deg, #ff6b00, #ff4500); /* Attractive gradient */
+  background: linear-gradient(45deg, #ff6b00, #ff4500);
   color: #ffffff;
-/* Subtle lift and scale */
-  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.4); /* Subtle shadow */
+  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.4); 
 }
 
 .nav-link.active {
@@ -120,7 +122,9 @@
   .navigation {
     padding: 10px;
   }
-
+  .navigation::-webkit-scrollbar {
+    width: 2px;
+  }
   .nav-content {
     gap: 12px;
   }

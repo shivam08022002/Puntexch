@@ -1,5 +1,35 @@
  /* General Page Styles */
 .home-page {
     padding: 3px;
-    background: linear-gradient(45deg, #000000, #3e2c2c); /* Gradient background */
+    background: linear-gradient(45deg, #000000, #251b1b); /* Gradient background */
   }
+  button {
+    /* all: unset; */
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* }
+  .home-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    padding-top: 0px;
+    padding-bottom: 0%;
+    font-family: 'Arial', sans-serif;
+  }
+
+  @media screen and (max-width: 480px) {
+    .home-content {
+      padding: 0px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .home-content {
+      padding: 0px;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .home-content {
+      padding: 0px;
+   }
+  /* } */

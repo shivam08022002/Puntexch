@@ -11,6 +11,11 @@
     gap: 8px;
 }
 
+button {
+  /* all: unset; */
+  -webkit-tap-highlight-color: transparent;
+
+}
 
 .match-table {
     border-collapse: collapse;

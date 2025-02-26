@@ -1,3 +1,11 @@
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+menu link{
+  -webkit-tap-highlight-color: transparent;
+}
+
 .footer-menu {
   position: fixed;
   bottom: 0;
@@ -58,7 +66,9 @@
   border: 1px solid rgba(255, 215, 0, 0.1);
   transition: all 0.3s ease;
   overflow: hidden;
-}
+  -webkit-tap-highlight-color: transparent;
+  }
+
 
 .icon-box::before {
   content: '';
@@ -73,6 +83,8 @@
   font-size: 20px;
   transition: all 0.3s ease;
   z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 .menu-link span {
@@ -80,6 +92,8 @@
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 /* Active and Hover States */
@@ -125,6 +139,8 @@
   background: linear-gradient(90deg, transparent, #ffd700, transparent);
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 /* Responsive Design */
@@ -185,6 +201,7 @@
   .menu-link {
     padding: 6px 0;
     gap: 4px;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .menu-link svg {

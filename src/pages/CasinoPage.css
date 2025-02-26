@@ -1,3 +1,7 @@
+button {
+  /* all: unset; */
+  -webkit-tap-highlight-color: transparent;
+}
 .casino-page {
   padding: 10px;
   background: #1a1a1d;
@@ -98,6 +102,7 @@
     0 4px 12px rgba(0, 0, 0, 0.2),
     inset 0 2px 4px rgba(255, 255, 255, 0.1);
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
 }
 
@@ -141,7 +146,7 @@
 }
 
 .casino-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 .casino-card-inner {
@@ -160,6 +165,7 @@
   align-items: flex-end;
   padding: 20px;
   color: white;
+  overflow: hidden;
   border-radius: 15px;
 }
 
@@ -169,26 +175,37 @@
   object-fit: cover;
   border-radius: 15px;
 }
-
+.casino-card:hover .casino-image {
+  transform: scale(1.1);
+}
 .casino-overlay {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 15px;
+  width: 100%;
+  height: 100%;
+  /* margin-top:50px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.6) 70%,
     transparent 100%
   );
+  border-radius: 10px;
   color: white;
   transition: all 0.3s ease;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  transition: all 0.5s ease;
+
+  z-index: 2;
+  opacity: 0; 
+  pointer-events: none; 
+  padding-top: 20px;
 }
 
 .casino-overlay h3 {
@@ -199,7 +216,13 @@
 
 .casino-overlay p {
   font-size: 14px;
-  margin: 5px 0;
+  margin: 0 0 10px 0;
+  opacity: 0.8;
+  overflow: hidden;
+}
+.casino-card:hover .casino-overlay {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .play-button {
@@ -440,27 +463,24 @@
     height: 180px;
   }
 
-  .casino-overlay {
-    padding: 10px;
-  }
-
-  .play-button {
-    font-size: 10px;
-    padding: 4px 12px;
-  }
   .pagination {
-    gap: 8px;
-    padding: 10px 0;
+    gap: 0px;
+    padding: 8px 0;
   }
 
   .pagination-numbers {
     max-width: calc(100vw - 150px);
   }
 
-  .pagination-button,
-  .pagination-number {
-    padding: 5px 1px;
+  .pagination-button{
+    padding:8px ;
     font-size: 11px;
-    min-width: 30px;
+    border-radius: 5px;
+  }
+
+  .pagination-number {
+    padding:8px;
+    font-size: 10px;
+    min-width: 35px;
   }
 }

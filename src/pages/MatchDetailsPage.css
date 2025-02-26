@@ -12,6 +12,12 @@
   padding: 10px;
 }
 
+button {
+  /* all: unset; */
+  -webkit-tap-highlight-color: transparent;
+
+}
+
 /* Scoreboard Section */
 .match-details-main {
   background: #fff;

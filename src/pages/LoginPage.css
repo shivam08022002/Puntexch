@@ -8,6 +8,12 @@
   position: relative;
   overflow: hidden;
   animation: gradientShift 8s infinite alternate;
+
+}
+
+button {
+  /* all: unset; */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Modal Overlay with particles */

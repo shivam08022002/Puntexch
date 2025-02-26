@@ -1,13 +1,17 @@
+button{
+  -webkit-tap-highlight-color: transparent;
+}
 .home-casino-section {
-  width: 100%;
-  padding: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  /* backdrop-filter: blur(10px); */
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.163);
+  border-radius: 15px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.2);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  margin-top: 5px;
+     margin-top: 0px;
+     padding: 10px;
+     margin: 5px 5px ;
+
 }
 
 .home-casino-header {
@@ -15,23 +19,23 @@
   justify-content: space-between;
   align-items: center;
   padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 20px);
-  margin-bottom: 0;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  /* margin-bottom: 5px; */
+  background: linear-gradient(135deg, #000000 0%, #12161b 100%);
   border-radius: 8px;
-  border: 1px solid rgba(255, 215, 0, 0.1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.108);
+  box-shadow: 0 4px 15px rgba(6, 5, 5, 0.2);
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 2vw, 12px);
+  gap: 12px;
 }
 
 .home-casino-header h2 {
-  font-size: clamp(18px, 3vw, 24px);
+  font-size: clamp(20px, 4vw, 30px);
   font-weight: 700;
-  color: #ffd700;
+  color: #FFD700;
   margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.5px;
@@ -71,9 +75,9 @@
 
 .home-casino-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* Always 3 cards per row */
   gap: 5px;
-  padding: 5px;
+  padding-top: 8px;
 }
 
 .home-casino-card {
@@ -81,21 +85,24 @@
   width: 100%;
   height: 100%;
   padding-bottom: 100%; /* Keeps the card square */
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 .home-casino-card-inner {
+  position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+  transform-style:flat;
 }
+
 .casino-card-inner {
   position: absolute;
   width: 100%;
@@ -139,24 +146,32 @@
 
 .home-casino-overlay {
   position: absolute;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  /* margin-top:50px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.9) 0%,
     rgba(0, 0, 0, 0.6) 70%,
     transparent 100%
   );
-  border-radius: 20px;
+  border-radius: 10px;
   color: white;
   transition: all 0.3s ease;
+  transition: all 0.5s ease;
+
   z-index: 2;
   opacity: 0; 
   pointer-events: none; 
+  padding-top: 20px;
 }
 
 
@@ -167,7 +182,7 @@
 
 .home-casino-overlay h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
  }
 
@@ -198,6 +213,12 @@
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
+}
+
+.game-icon {
+  font-size: clamp(20px, 3vw, 26px);
+  color: #5a90efe1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .play-button::before {
@@ -282,7 +303,7 @@
   }
 
   .home-casino-header {
-    padding: 6px 8px;
+    padding: 8px 10px;
   }
 
   .home-casino-header h2 {

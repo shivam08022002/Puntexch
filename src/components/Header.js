@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaHome, FaUser, FaSignOutAlt, FaWallet } from 'react-icons/fa';
 import Navigation from './Navigation';
-import Footer from './Footer';
+// import Footer from './Footer';
 import './Header.css';
 import LoginPage from '../pages/LoginPage';
 import { httpHelpers } from '../services/httpHelpers';
@@ -191,9 +191,9 @@ const Header = ({
             <Navigation />
           </nav>
 
-          <div className="sidebar-footer">
+          {/* <div className="sidebar-footer">
             <Footer />
-          </div>
+          </div> */}
         </div>
       </aside>
 

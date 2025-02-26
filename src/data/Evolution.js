@@ -2,7 +2,7 @@ export const EvolutionArray = [
   {
     name: "Evolution Lobby",
     id: "8ef39602e589bf9f32fc351b1cbb338b",
-    img: "https://www.casinokings.com/wp-content/uploads/2024/10/Evolution-Gaming-Roulette-Lobby.jpg",
+    img: "https://i0.wp.com/www.singaporeplay.com/wp-content/uploads/Evolution-Gaming.jpg?resize=650%2C410&ssl=1",
     provider: "Evolution",
   },
 ]

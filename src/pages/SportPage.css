@@ -1,3 +1,7 @@
+button {
+  /* all: unset; */
+  -webkit-tap-highlight-color: transparent;
+}
 .sport-page {
   padding: 3px;
   margin: 3px;

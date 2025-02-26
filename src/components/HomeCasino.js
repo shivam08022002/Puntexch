@@ -1,35 +1,69 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomeCasino.css';
+import axios from 'axios';
+import TokenService from '../services/token-service';
+
 
 const HomeCasino = () => {
   const casinoData = [
     {
-      name: "Live Roulette",
-      gradient: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
-      game: "Evolution Gaming",
-      bgImage: "https://img.freepik.com/premium-photo/online-casino-3d-realistic-roulette-wheel-slot-machine-blue-background_1029469-220462.jpg?w=360",
+      name: "Evolution Lobby",
+      id: "8ef39602e589bf9f32fc351b1cbb338b",
+      img: "https://i0.wp.com/www.singaporeplay.com/wp-content/uploads/Evolution-Gaming.jpg?resize=650%2C410&ssl=1",
     },
     {
-      name: "Teen Patti",
-      gradient: "linear-gradient(135deg, #009688 0%, #4CAF50 100%)",
-      game: "Live Teen Patti",
-      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJVVwy44J5zmc8aup1eccaCBv_eXcQknr3hA&s",
-    },
-    {
-      name: "Blackjack",
-      gradient: "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)",
-      game: "Live Blackjack",
-      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIAwyX9v1ymBh-pF4izSZFQOgHq9UDoe-tg&s",
-    },
-    {
-      name: "Poker",
-      gradient: "linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%)",
-      game: "Texas Hold'em",
-      bgImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPyZcVoZC5H9DfX9ojH0aJUZscpOQ1eMgBQA&s",
-    },
-  ];
+      name:"Playtech Lobby",	
+      id:"c38efc51028bd65f42396fa079c125d6",	
+      img:"https://images.ctfassets.net/gfvfx5dc97y3/5MetwO8MX50adHJT4HWEXh/39da691cfbdb48a0f6d6f7d7c9f38c1c/white_king_ii.playtech.background.jpeg"
+      },
+    
+      {
+        name: "European Roulette",
+        id: "6d3a70a2a87674728281f1de1567f515",
+        img: "https://huidu-bucket.s3.ap-southeast-1.amazonaws.com/api/km/Game_KMQM_European_Roulette_520x520.jpg"
+      },
+      {
+        "name": "Blackjack",
+        "id": "4605668e8b04418b3c6358b3eb9b1b80",
+        img: "https://huidu-bucket.s3.ap-southeast-1.amazonaws.com/api/km/Game_KMQM_Blackjack_520x520.jpg"
+      },
+  ];  
+  const handleCasinoGamesClick = async (e, casinoId, providerName) => {
+    e.preventDefault();
+    try {
+        const accessToken = TokenService.getLocalAccessToken();
+        console.log('accessToken', accessToken);
+        console.log(`Provider: ${providerName}, Game ID: ${casinoId}`);  // Debugging  
 
+        if (!accessToken) {
+            console.error("No access token found! User might be logged out.");
+            return;
+        }
+
+        if (!casinoId) {
+            console.error("No gameId provided! Check if the selected provider's games have valid IDs.");
+            return;
+        }
+
+        const res = await axios.get(`https://nice247.pro/backend/gamma/getCasinoGameUrl?gameId=${casinoId}`, {
+          headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+        });
+
+        if (res.data && res.data.gameUrl) {
+            console.log(`Game URL for ${providerName}:`, res.data.gameUrl);
+            window.open(res.data.gameUrl, "_blank");
+        } else {
+            console.error(`Invalid response format for ${providerName}:`, res.data);
+        }
+    } catch (err) {
+        console.error(`Error fetching game link for ${providerName}:`, err.response?.data || err.message);
+    }
+};
   return (
     <div className="home-casino-section">
       <div className="home-casino-header">
@@ -46,7 +80,7 @@ const HomeCasino = () => {
                 className="home-casino-card-front"
                 style={{
                   background: casino.gradient,
-                  backgroundImage: `url(${casino.bgImage})`,
+                  backgroundImage: `url(${casino.img})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
@@ -54,8 +88,8 @@ const HomeCasino = () => {
                 <div className="home-casino-overlay">
                   <h3>{casino.name}</h3>
                   <p>{casino.game}</p>
-                  <button className="play-button">Play Now</button>
-                </div>
+                  <button className="play-button" onClick={(e) => handleCasinoGamesClick(e, casino.id)}>Play Now</button>
+                  </div>
               </div>
             </div>
           </div>

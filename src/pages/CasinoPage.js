@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import './CasinoPage.css';
 import axios from 'axios';
 import { EvolutionArray } from '../data/Evolution';
-import { useNavigate } from 'react-router-dom';
 import { Astar } from '../data/Astar';
 import { SaGamingArray } from '../data/Sagaming';
 import { JDBArray } from '../data/JDB';
@@ -17,7 +16,6 @@ import { PlayTechLobby } from '../data/PlayTech';
 import { KingMidasArray } from '../data/KingMidas';
 import { CQ9Array } from '../data/CQ9';
 // import { Import } from 'lucide-react';
-import { httpHelpers } from '../services/httpHelpers';
 import TokenService from '../services/token-service';
 
 const providerData = [
@@ -42,14 +40,12 @@ const providerData = [
 providerData[0].games = providerData.slice(1).flatMap(provider => provider.games);
 
 const ITEMS_PER_PAGE = 30;
-const api = httpHelpers();
 
 const CasinoPage = ({ currentSportName = "casino" }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProvider, setSelectedProvider] = useState('All');
   const [displayedGames, setDisplayedGames] = useState([]);
   const [page, setPage] = useState(1);
-  const navigate = useNavigate();
 
   const banners = {
     casino: {
@@ -167,7 +163,6 @@ useEffect(() => {
                   <img src={game.img} alt={game.name} className="casino-game-img" />
                   <div className="casino-overlay">
                     <h3>{game.name}</h3>
-                    {game.currency && <p>{game.currency}</p>}
                     <button className="play-button" onClick={(e) => handleCasinoGamesClick(e, game.id,selectedProvider)}>Play Now</button>
                   </div>
                 </div>

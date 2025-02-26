@@ -5,6 +5,11 @@
     transform: scale(1.05); /* Slight zoom effect */
 }
 
+button {
+    /* all: unset; */
+    -webkit-tap-highlight-color: transparent;
+  }
+  
 /* Animation for banner elements */
 @keyframes fadeIn {
     from {

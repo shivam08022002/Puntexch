@@ -1,4 +1,8 @@
 /* Global Styles */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .footer {
   background: linear-gradient(135deg, #0f172a, #1e293b);
   color: #e2e8f0;
@@ -23,6 +27,9 @@
 /* Section Styling */
 .footer-section {
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-section h4 {
@@ -72,6 +79,9 @@
 .contact-info {
   color: #cbd5e1;
   font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-info p {
@@ -101,7 +111,7 @@
 /* Footer Bottom */
 .footer-bottom {
   padding-top: 15px;
-  padding-bottom: 0;
+  padding-bottom: 30px;
   text-align: center;
   font-size: 12px;
 }
@@ -171,6 +181,7 @@
 
   .footer-bottom {
     font-size: 11px;
+    padding-bottom: 60px;
   }
 
   .disclaimer {
