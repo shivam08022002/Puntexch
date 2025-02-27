@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   FaClock,
@@ -18,7 +18,6 @@ import {
 import './Navigation.css';
 
 const Navigation = () => {
-  const [setSelectedSport] = useState('cricket');
 
   const sports = [
     { name: 'Inplay', icon: <FaClock /> },
@@ -37,7 +36,6 @@ const Navigation = () => {
   ];
 
   const handleSportClick = (sport) => {
-    setSelectedSport(sport);
   };
 
   return (

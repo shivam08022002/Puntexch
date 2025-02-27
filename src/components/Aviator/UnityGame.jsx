@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import ResponseFile from "./ResponseFile";
 import "./Aviator.css";
 
 export default function UnityGame() {
     const { unityProvider, sendMessage, isLoaded } = useUnityContext({
-      loaderUrl: "/pushpa-rani/Build/pushpaRani.loader.js",
-      dataUrl: "/pushpa-rani/Build/pushpaRani.data",
-      frameworkUrl: "/pushpa-rani/Build/pushpaRani.framework.js",
-      codeUrl: "/pushpa-rani/Build/pushpaRani.wasm",
-    });
+        loaderUrl: "/aviator/Build//aviator.loader.js",
+        dataUrl: "/aviator/Build//aviator.data",
+        frameworkUrl: "/aviator/Build//aviator.framework.js",
+        codeUrl: "/aviator/Build//aviator.wasm",
+      });
 
       const unityCanvasRef = useRef(null);
       const [inputValue, setInputValue] = useState(0); // Current multiplier value
@@ -68,18 +68,17 @@ export default function UnityGame() {
       };
 
       // Function to fetch data (multiplier and crash state) from the backend API
-      // Function to fetch data (multiplier and crash state) from the backend API
       const fetchData = async () => {
-        try {
-          const accessToken = localStorage.getItem("refreshToken");
-          const response = await fetch("https://ag.play-247.in/games/api/v1/virtual-games/aviatorGame", {
-            method: "GET", // HTTP method (GET in this case)
-            headers: {
-                "Authorization": `Bearer ${accessToken}`, // Add JWT token as Bearer token
-                "Content-Type": "application/json" // Optional: if your API expects JSON format
-            }
-          });
-          const data = await response.json();
+    try {
+      const accessToken = localStorage.getItem("refreshToken");
+      const response = await fetch("https://ag.play-247.in/games/api/v1/virtual-games/aviatorGame", {
+        method: "GET", // HTTP method (GET in this case)
+        headers: {
+            "Authorization": `Bearer ${accessToken}`, // Add JWT token as Bearer token
+            "Content-Type": "application/json" // Optional: if your API expects JSON format
+        }
+      });
+      const data = await response.json();
           const newMultiplier = data["multiplierRange"]; // the API returns a "next target" field
 
           // Simulating a boolean crash value from the API
@@ -144,7 +143,6 @@ export default function UnityGame() {
           <p>Current Multiplier: {inputValue.toFixed(2)}</p>
           <p>Plane Crashed: {isPlaneCrashed ? "Yes" : "No"}</p>  */}
           <ResponseFile/>
-
         </div>
       );
 }

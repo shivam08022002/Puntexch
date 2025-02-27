@@ -50,16 +50,16 @@ const GameWindow = () => (
 );
 
 const BettingSection = ({ title }) => {
-  const [amount, setamount] = useState(10);
+  const [amount, setAmount] = useState(10);
   const [activeTab, setActiveTab] = useState('bet');
   const [autoCashOut, setAutoCashOut] = useState(false);
   const [autoMultiplier, setAutoMultiplier] = useState(1.1);
   const [isBetting, setIsBetting] = useState(false);
-  const presetamounts = [10, 100, 500, 1000];
+  const presetAmounts = [10, 100, 500, 1000];
 
-  const adjustamount = (increment) => {
+  const adjustAmount = (increment) => {
     if (!isBetting) {
-      setamount(prev => Math.max(0, prev + increment));
+      setAmount(prev => Math.max(0, prev + increment));
     }
   };
 
@@ -93,48 +93,48 @@ const BettingSection = ({ title }) => {
             <div className="waiting-text">WAITING FOR NEXT ROUND</div>
           )}
    
-          <div className="aviator-amount-control">
-            <div className="aviator-amount-adjuster">
+          <div className="amount-control">
+            <div className="amount-adjuster">
               <button
-                onClick={() => adjustamount(-10)}
+                onClick={() => adjustAmount(-10)}
                 className="adjuster-btn"
                 disabled={isBetting}
               >−</button>
               <input
                 type="number"
                 value={amount}
-                onChange={(e) => !isBetting && setamount(Number(e.target.value))}
-                className="aviator-amount-input"
+                onChange={(e) => !isBetting && setAmount(Number(e.target.value))}
+                className="amount-input"
                 disabled={isBetting}
               />
               <button
-                onClick={() => adjustamount(10)}
+                onClick={() => adjustAmount(10)}
                 className="adjuster-btn"
                 disabled={isBetting}
               >+</button>
             </div>
 
-            <div className="preset-aviator-amounts">
+            <div className="preset-amounts">
               <div className="preset-row">
                 <button
-                  onClick={() => !isBetting && setamount(10)}
+                  onClick={() => !isBetting && setAmount(10)}
                   className="preset-btn"
                   disabled={isBetting}
                 >10</button>
                 <button
-                  onClick={() => !isBetting && setamount(100)}
+                  onClick={() => !isBetting && setAmount(100)}
                   className="preset-btn"
                   disabled={isBetting}
                 >100</button>
               </div>
               <div className="preset-row">
                 <button
-                  onClick={() => !isBetting && setamount(500)}
+                  onClick={() => !isBetting && setAmount(500)}
                   className="preset-btn"
                   disabled={isBetting}
                 >500</button>
                 <button
-                  onClick={() => !isBetting && setamount(1000)}
+                  onClick={() => !isBetting && setAmount(1000)}
                   className="preset-btn"
                   disabled={isBetting}
                 >1000</button>
@@ -147,7 +147,7 @@ const BettingSection = ({ title }) => {
             onClick={handleBetClick}
           >
             <div className="bet-text">{isBetting ? 'CANCEL' : 'BET'}</div>
-            {!isBetting && <div className="bet-aviator-amount">{amount}₹</div>}
+            {!isBetting && <div className="bet-amount">{amount}₹</div>}
           </button>
         </div>
 
@@ -242,7 +242,7 @@ const BettingHistory = () => {
   return (
     <div className="betting-history">
       <div className="history-tabs">
-        <div className="aviator-tabs-container">
+        <div className="aviator-tabs-container2">
           <button
             className={`aviator-tab ${activeTab === 'allBets' ? 'aviator-active' : ''}`}
             onClick={() => setActiveTab('allBets')}
@@ -267,7 +267,7 @@ const BettingHistory = () => {
                 <div className="total-bets-header">
                   <span>ALL BETS</span>
                 </div>
-                <div className="total-aviator-amount">{totalBets.toFixed(2)}</div>
+                <div className="total-amount">{totalBets.toFixed(2)}</div>
                 <div className="divider"></div>
               </div>
               <div className="bets-columns">
@@ -284,7 +284,7 @@ const BettingHistory = () => {
                     <img src={bet.avatar} alt="avatar" className="avatar" />
                     <span>{bet.user}</span>
                   </div>
-                  <span className="aviator-bet-aviator-amount">{bet.bet}</span>
+                  <span className="aviator-bet-amount">{bet.bet}</span>
                   <span className="multiplier">{bet.multiplier}x</span>
                   <span className="cashout">{bet.cashout}</span>
                 </div>
@@ -306,7 +306,7 @@ const BettingHistory = () => {
               {myBets.map((bet) => (
                 <div key={bet.id} className="bet-row won">
                   <span className="date">{bet.date}</span>
-                  <span className="bet-aviator-amount">{bet.bet}</span>
+                  <span className="aviator-bet-amount">{bet.bet}</span>
                   <span className="multiplier">{bet.multiplier}x</span>
                   <span className="cashout">{bet.cashout}</span>
                 </div>

@@ -1,13 +1,13 @@
 .virtual-games-section {
   background: rgba(255, 255, 255, 0.163);
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.2);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 0 0 1px rgba(255, 255, 255, 0.1);
      margin-top: 0px;
      padding: 10px;
-     margin: 5px 5px ;
+     margin: 0px 5px ;
 }
 
 button{
@@ -112,12 +112,13 @@ button{
 
 .game-overlay {
   position: absolute;
+  left: 0; 
   width: 100%;
-  height: 100%;
-  padding: 30px;
+  height: 100%; 
+  /* padding: 30px; */
   background: linear-gradient(
-   to top, rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.6) 80%,
+   to top, rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.6) 100%,
     transparent 100%
   );
   border-radius: 10px;
@@ -126,6 +127,10 @@ button{
   z-index: 2;
   opacity: 0; 
   pointer-events: none; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .virtual-game-card:hover .game-overlay {
@@ -174,5 +179,8 @@ button{
 @media (max-width: 480px) {
   .virtual-games-grid {
     grid-template-columns: repeat(2, 1fr); /* 3 cards per row on mobile */
+  }
+  .game-overlay.h3{
+    font-size: 15px;
   }
 }

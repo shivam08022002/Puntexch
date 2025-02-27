@@ -153,9 +153,10 @@
 }
 
 .pushpa-betting-section.betting-active {
-    border: 2px solid #05aef7;
-    /* padding: 1.5rem; */
+    border: 2px solid #05d3f7;
+    background: #580e58;
 }
+
 
 .pushpa-waiting-text {
     position: absolute;
@@ -183,7 +184,17 @@
     border-radius: 2rem;
     padding: 0.15rem;
     display: flex;
-    gap: 0;
+    gap: 0px;
+    /* margin-bottom: 5px; */
+}
+
+.pushpa-tabs-container2 {
+    background: linear-gradient(to bottom, #7652f9, #3400f0); /* Gradient from light purple to dark purple */
+    border-radius: 2rem;
+    padding: 0.15rem;
+    display: flex;
+    gap: 0px;
+    margin-bottom: 10px;
 }
 
 .tab {
@@ -241,7 +252,7 @@
     height: 2.2rem;
     border: 3px solid #000000; /* Fallback border color */
     border-radius: 50%;
-    background-color: #f1c40f; /* Yellow background */
+    background-color: #f2c309; /* Yellow background */
     color: #3f0bea; /* Purple text */
     font-size: 1.8rem;
     font-weight: bold;
@@ -268,7 +279,7 @@
     background: transparent;
     color: rgb(0, 0, 0);
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     overflow: hidden;
     width: 2rem;
@@ -364,7 +375,7 @@
 
 .pushpa-bet-amount {
     text-shadow: 1px #000000;
-    color: white;
+    color: rgb(255, 232, 232);
     font-size: 1.5rem;
     text-align: center;
     /* margin-top: 0.25rem; */
@@ -372,7 +383,7 @@
 
 .pushpa-bet-amount2{
     text-shadow: 1px #000000;
-    color: white;
+    color: rgb(255, 232, 232);
     font-size: 0.8rem;
     text-align: center;
 }
@@ -463,15 +474,15 @@ input[type="number"]::-webkit-outer-spin-button {
     grid-template-columns: 1.5fr 1fr 0.7fr 1.2fr;
     gap: 0.5rem;
     padding: 0.25rem 0.5rem;
-    background-color: rgba(255, 255, 255, 0.032);
+    background-color: #00ff001a;
     border-radius: 0.5rem;
     color: #00c853;
     align-items: center;
 }
 
-.pushpa-bet-row.pushpa-won {
+ .pushpa-bet-row.pushpa-won {
     background-color: rgba(0, 255, 0, 0.1);
-}
+} 
 
 .pushpa-user-info {
     display: flex;
@@ -566,7 +577,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .pushpa-date {
-    color: #888;
+    color: #bdb4b4;
     font-size: 0.9rem;
 }
 

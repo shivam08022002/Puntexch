@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { FaExchangeAlt, FaChartLine, FaLock, FaTv, FaCheck } from 'react-icons/fa';
 import { useParams, useLocation } from 'react-router-dom';
 import './MatchDetailsPage.css';
@@ -210,6 +210,10 @@ const MatchDetailsPage = () => {
         return null;
     }
   };
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    }, []);
 
   return (
     <div className="match-details-container">

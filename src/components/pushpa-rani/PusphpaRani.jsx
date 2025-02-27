@@ -69,103 +69,6 @@ const handleBetClick = () => {  // Separate function at the same level
   setIsBetting(!isBetting);
 };
 
-  // const styles = {
-  //   bettingSection: {
-  //     background: 'linear-gradient(to bottom, #4a1455, #2d0d33)',
-  //     padding: '15px',
-  //     borderRadius: '8px'
-  //   },
-  //   tab: {
-  //     background: 'transparent',
-  //     color: 'white',
-  //     border: '2px solid #ffd700',
-  //     borderRadius: '20px',
-  //     padding: '8px 20px',
-  //     margin: '0 5px',
-  //     fontWeight: 'bold'
-  //   },
-  //   activeTab: {
-  //     background: '#ffd700',
-  //     color: '#4a1455'
-  //   },
-  //   adjusterBtn: {
-  //     background: '#7b2490',
-  //     color: 'white',
-  //     border: '2px solid #ffd700',
-  //     borderRadius: '50%',
-  //     width: '30px',
-  //     height: '30px',
-  //     fontSize: '20px',
-  //     display: 'flex',
-  //     alignItems: 'center',
-  //     justifyContent: 'center'
-  //   },
-  //   amountInput: {
-  //     background: '#2d0d33',
-  //     border: '2px solid #ffd700',
-  //     color: 'white',
-  //     borderRadius: '15px',
-  //     padding: '5px 10px',
-  //     width: '80px',
-  //     textAlign: 'center'
-  //   },
-  //   presetBtn: {
-  //     background: '#7b2490',
-  //     color: 'white',
-  //     border: '2px solid #ffd700',
-  //     borderRadius: '15px',
-  //     padding: '5px 15px',
-  //     margin: '3px'
-  //   },
-  //   betButton: {
-  //     background: '#6c3ce0',
-  //     border: '2px solid #ffd700',
-  //     color: 'white',
-  //     borderRadius: '25px',
-  //     padding: '10px 30px',
-  //     fontWeight: 'bold',
-  //     display: 'flex',
-  //     flexDirection: 'column',
-  //     alignItems: 'center'
-  //   },
-  //   cancelButton: {
-  //     background: '#ff4444'
-  //   },
-  //   autoPlayBtn: {
-  //     background: '#6c3ce0',
-  //     border: '2px solid #ffd700',
-  //     color: 'white',
-  //     borderRadius: '20px',
-  //     padding: '8px 20px',
-  //     fontWeight: 'bold'
-  //   },
-  //   toggle: {
-  //     background: '#2d0d33',
-  //     border: '2px solid #ffd700',
-  //     borderRadius: '15px'
-  //   },
-  //   toggleSlider: {
-  //     background: '#7b2490',
-  //     borderRadius: '50%'
-  //   },
-  //   multiplierInput: {
-  //     background: '#2d0d33',
-  //     border: '2px solid #ffd700',
-  //     color: 'white',
-  //     borderRadius: '15px',
-  //     padding: '5px 10px'
-  //   },
-  //   waitingText: {
-  //     color: '#ffd700',
-  //     fontWeight: 'bold',
-  //     textAlign: 'center',
-  //     margin: '10px 0'
-  //   }
-  // };
-
-
-// Your existing return statement remains the same
-
 
   return (
     <div className={`pushpa-betting-section ${isBetting ? 'betting-active' : ''}`}>
@@ -347,7 +250,7 @@ const BettingHistory = () => {
   return (
     <div className="pushpa-betting-history">
       <div className="pushpa-history-tabs">
-        <div className="pushpa-tabs-container">
+        <div className="pushpa-tabs-container2">
           <button
             className={`tab ${activeTab === 'allBets' ? 'active' : ''}`}
             onClick={() => setActiveTab('allBets')}
@@ -384,7 +287,7 @@ const BettingHistory = () => {
             </div>
             <div className="pushpa-bets-list">
               {currentBets.map((bet) => (
-                <div key={bet.id} className={`bet-row ${bet.cashout ? 'won' : ''}`}>
+                <div key={bet.id} className={`pushpa-bet-row ${bet.cashout ? 'won' : ''}`}>
                   <div className="pushpa-user-info">
                     <img src={bet.avatar} alt="avatar" className="pushpa-avatar" />
                     <span>{bet.user}</span>
@@ -409,9 +312,9 @@ const BettingHistory = () => {
             </div>
             <div className="pushpa-bets-list my-bets-list">
               {myBets.map((bet) => (
-                <div key={bet.id} className="pushpa-bet-row won">
+                <div key={bet.id} className="pushpa-bet-row-won">
                   <span className="pushpa-date">{bet.date}</span>
-                  <span className="pushpa-bet-amount">{bet.bet}</span>
+                  <span className="pushpa-bet-amount2">{bet.bet}</span>
                   <span className="pushpa-multiplier">{bet.multiplier}x</span>
                   <span className="pushpa-cashout">{bet.cashout}</span>
                 </div>

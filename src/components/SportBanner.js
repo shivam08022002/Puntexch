@@ -1,8 +1,13 @@
 // components/Banner.js
 import React from 'react';
 import './SportBanner.css';
-
+import { useEffect } from 'react';
 const SportBanner = ({ sport, imageUrl }) => {
+  
+  useEffect(() => {
+  window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div
       className="sport-banner"

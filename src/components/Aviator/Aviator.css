@@ -170,6 +170,14 @@
     display: flex;
     gap: 0;
 }
+.aviator-tabs-container2 {
+    background-color: #141516;
+    border-radius: 2rem;
+    padding: 0.15rem;
+    display: flex;
+    gap: 0;
+    margin-bottom: 10px;
+}
 
 .aviator-tab {
     padding: 0.2rem 1.8rem;
@@ -197,7 +205,7 @@
     align-items: flex-start;
 }
 
-.aviator-amount-control {
+.amount-control {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -205,7 +213,7 @@
     position: relative;
 }
 
-.aviator-amount-adjuster {
+.amount-adjuster {
     display: flex;
     align-items: center;
     background-color: #000000b3;
@@ -228,23 +236,23 @@
     justify-content: center;
 }
 
-.aviator-amount-input {
+.amount-input {
     flex: 1;
     border: none;
     background: transparent;
     color: white;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     width: 3rem;
     padding: 0;
 }
 
-.aviator-amount-input:focus {
+.amount-input:focus {
     outline: none;
 }
 
-.aviator-preset-amounts {
+.preset-amounts {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
@@ -284,7 +292,7 @@
     justify-content: center;
     max-height: 90px;
     transition: all 0.3s ease;
-    text-shadow: 2px #000000;
+    text-shadow: 2px #030303de;
 
 }
 
@@ -312,12 +320,12 @@
 .bet-text {
     color: white;
     font-size: 1.2rem;
-    text-shadow: 1px #000000;
+    text-shadow: 2px solid #000000;
     font-weight: 200;
     text-align: center;
 }
 
-.aviator-bet-amount {
+.bet-amount {
     text-shadow: 1px #000000;
     color: white;
     font-size: 1.5rem;
@@ -385,7 +393,7 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 0.9rem;
 }
 
-.total-bets .aviator-amount {
+.total-bets .amount {
     color: white;
 }
 
@@ -486,7 +494,7 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 0.9rem;
 }
 
-.total-aviator-amount {
+.total-amount {
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
@@ -693,7 +701,7 @@ input:checked+.toggle-slider:before {
 /* Add disabled states */
 .adjuster-btn:disabled,
 .preset-btn:disabled,
-.aviator-amount-input:disabled {
+.amount-input:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
