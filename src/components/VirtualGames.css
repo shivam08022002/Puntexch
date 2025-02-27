@@ -166,7 +166,7 @@ button{
 
 @media (max-width: 1024px) {
   .virtual-games-grid {
-    grid-template-columns: repeat(6, 1fr); /* 3 cards per row on tablets */
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row on tablets */
   }
 }
 

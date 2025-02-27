@@ -16,19 +16,19 @@ const Banner = () => {
       title: "IPL CRICKET",
       subtitle: "SEASON 2025",
       date: "22ND MAR, 2025",
-      bgImage: "https://exchange4media.gumlet.io/news-photo/139188-IPL.jpg",
+      bgImage: "https://media.licdn.com/dms/image/v2/D4D12AQGhaKCtKRjCLg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1732800198638?e=2147483647&v=beta&t=Y1CL_hoeLMeDzXTAn83V2nJU5Ul4BvhDISV-e8qQ1po",
     },
     {
       title: "UEFA CHAMPIONS",
       subtitle: "ROUND OF 16",
       date: "13TH FEB, 2025",
-      bgImage: "https://img.freepik.com/premium-psd/dynamic-champions-league-banner-with-trophy-swirling-colors-stadium_952796-597.jpg",
+      bgImage: "https://static.vecteezy.com/system/resources/previews/003/810/470/original/online-casino-red-banner-with-smartphone-red-slot-machine-casino-roulette-poker-chips-and-playing-cards-vector.jpg",
     },
     {
       title: "PRO KABADDI",
       subtitle: "Coming Soon",
       date: "18TH FEB, 2025",
-      bgImage: "https://media.sportstiger.com/media/pro-kabaddi-league-sportstiger-1688380325489-large.jpg"
+      bgImage: "https://i.ytimg.com/vi/QrID0EA3hhI/maxresdefault.jpg"
     }
   ];
 
