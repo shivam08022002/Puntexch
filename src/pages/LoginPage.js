@@ -46,7 +46,7 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
 
     useEffect(() => {
         drawCaptcha();
-        
+
         // Cleanup function to handle component unmounting
         return () => {
             setIsLoading(false);
@@ -107,7 +107,7 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
                         window.location.reload(); // Call this after successful login
                     }
                     break;
-                    
+
                 case 401:
                     setError("Username or password not found");
                     drawCaptcha();
@@ -125,65 +125,73 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
         }
     };
 
+    const onChangeUserName = (e) => {
+        const un = e.target.value;
+        const firstTwo = un.substring(0, 2).toUpperCase();
+        const restOfString = un.substring(2);  // Get the rest of the string
+        const username = firstTwo + restOfString;
+        setUsername(username);
+    };
+
     return (
         <div className="modal-overlay">
             <div className="login-modal">
-                <button 
-                    className="close-btn" 
+                <button
+                    className="close-btn"
                     onClick={closeLogin}
                     disabled={isLoading}
                 >
                     &times;
                 </button>
                 <div className="login-banner">
-                    <img 
-                        src={process.env.PUBLIC_URL + '/logo.png'} 
-                        alt="Skyexch Logo" 
-                        className="login-logo" 
+                    <img
+                        src={process.env.PUBLIC_URL + '/logo.png'}
+                        alt="Skyexch Logo"
+                        className="login-logo"
                     />
                 </div>
                 <form className="login-form" onSubmit={handleLogin}>
-                    <input 
-                        type="text" 
-                        placeholder="Username" 
-                        className="login-input" 
-                        value={username} 
-                        onChange={(e) => setUsername(e.target.value)} 
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        className="login-input"
+                        value={username}
+                        onChange={onChangeUserName}
                         disabled={isLoading}
-                        required 
+                        required
                     />
-                    <input 
-                        type="password" 
-                        placeholder="Password" 
-                        className="login-input" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        className="login-input"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         disabled={isLoading}
-                        required 
+                        required
                     />
                     <div className="login-page-captcha-container">
-                        <canvas 
-                            ref={canvasRef} 
-                            width={120} 
-                            height={44} 
-                            style={{ border: '0.5px solid black' }} 
+                        <canvas
+                            ref={canvasRef}
+                            width={120}
+                            height={44}
+                            style={{ border: '0.5px solid black' }}
                         />
                     </div>
                     {isValidCaptcha === false && (
                         <p style={{ color: 'red' }}>Enter Correct Number!</p>
                     )}
-                    <input 
-                        type="text" 
-                        className="login-input-code" 
-                        placeholder="Enter CAPTCHA" 
-                        value={userInput} 
-                        onChange={(e) => setUserInput(e.target.value)} 
+                    <input
+                        type="text"
+                        className="login-input-code"
+                        placeholder="Enter CAPTCHA"
+                        value={userInput}
+                        onChange={(e) => setUserInput(e.target.value)}
                         disabled={isLoading}
-                        required 
+                        required
                     />
                     {error && <p style={{ color: 'red' }}>{error}</p>}
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="login-button"
                         disabled={isLoading}
                     >

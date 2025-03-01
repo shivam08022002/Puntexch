@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import MatchTable from '../components/MatchTable';
 import Banner from '../components/Banner'; // Import the Banner component
 import './InplayPage.css';
@@ -100,10 +100,7 @@ const InplayPage = () => {
 
   // Sports display order
   const sportsOrder = ['cricket', 'soccer', 'tennis', 'basketball', 'volleyball'];
-    useEffect(() => {
-    window.scrollTo(0, 0);
-    }, []);
-  
+
   return (
     <div className="inplay-page">
       <Banner /> 

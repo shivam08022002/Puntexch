@@ -16,6 +16,9 @@ import ProfileSidebar from './components/ProfileSideBar';
 import TokenService from './services/token-service';
 import ChangePassword from './components/ChangePassword';
 import './App.css';
+import Aviator from './components/Aviator/Aviator';
+import PushpaRani from './components/pushpa-rani/PusphpaRani'
+import MarqueeText from './components/MarqueeText';
 
 const AppContent = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -72,7 +75,7 @@ const AppContent = () => {
       openLoginModal(); // Redirect to login if not logged in
     }
   };
- 
+
 
   useEffect(() => {
     document.title = 'Puntexch247 | Live Sports Betting';
@@ -91,9 +94,8 @@ const AppContent = () => {
         onLoginSuccess={handleLoginSuccess}
         user={user}
       />
-
-      <Navigation />
-
+      <MarqueeText />
+      <Navigation isLoggedIn={isLoggedIn} logOut={handleLogout} />
       {/* Ensure only Profile Sidebar opens when Profile button is clicked */}
       {isLoggedIn && (
         <ProfileSidebar
@@ -103,24 +105,24 @@ const AppContent = () => {
       )}
 
       <Routes>
-        <Route path="/" element={<HomePage openLoginModal={openLoginModal} />} />
-        <Route path="/sports/:sportName" element={<SportPage />} />
-        <Route path="/inplay" element={<InplayPage />} />
-        <Route path="/casino" element={<CasinoPage />} />
-        <Route path="/match/:id" element={<MatchDetailsPage />} />
-        <Route path="/change-password" element={<ChangePassword />} />
-        <Route path="/aviatorgame" element={<Aviator />} />
-        <Route path="/pushparani" element={<PushpaRani />} />
-        <Route path="/login" element={<LoginPage closeLogin={closeLoginModal} onLoginSuccess={handleLoginSuccess}/>} />
+        <Route path="/" element={<HomePage openLoginModal={openLoginModal} isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/sports/:sportName" element={<SportPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/inplay" element={<InplayPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/casino" element={<CasinoPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/match/:id" element={<MatchDetailsPage isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/change-password" element={<ChangePassword isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/aviatorgame" element={<Aviator isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/pushparani" element={<PushpaRani isLoggedIn={isLoggedIn} logOut={handleLogout} />} />
+        <Route path="/login" element={<LoginPage closeLogin={closeLoginModal} onLoginSuccess={handleLoginSuccess} />} />
       </Routes>
 
       <Footer />
 
       {/* Updated FooterMenu to control only the Profile Sidebar */}
-      <FooterMenu 
-        openLoginModal={openLoginModal} 
-        isLoggedIn={isLoggedIn} 
-        toggleProfileSidebar={toggleProfileSidebar} 
+      <FooterMenu
+        openLoginModal={openLoginModal}
+        isLoggedIn={isLoggedIn}
+        toggleProfileSidebar={toggleProfileSidebar}
       />
     </div>
   );

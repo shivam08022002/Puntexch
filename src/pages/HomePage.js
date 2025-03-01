@@ -11,11 +11,11 @@ import './HomePage.css';
 const HomePage = ({ openLoginModal }) => {
   return (
     <div className="home-page">
-      <MarqueeText />
-      
+      {/* <MarqueeText /> */}
+
       <div className="home-content">
-      <Navigation />
-         <Banner />
+        {/* <Navigation /> */}
+        {/* <Banner /> */}
         <VirtualGames openLoginModal={openLoginModal} />
         <HomeCasino openLoginModal={openLoginModal} />
       </div>

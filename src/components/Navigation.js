@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   FaClock,
@@ -16,14 +16,16 @@ import {
   FaGamepad,
 } from 'react-icons/fa';
 import './Navigation.css';
+import SportPage from '../pages/SportPage';
+import Banner from './Banner';
 
-const Navigation = () => {
-  const [selectedSport, setSelectedSport] = useState('cricket');
+const Navigation = ({ isLoggedIn, logOut }) => {
+  const [selectedSport, setSelectedSport] = useState(null);
 
   const sports = [
     { name: 'Inplay', icon: <FaClock /> },
-    { name: 'Cricket', icon: <FaBaseballBall/> },
-    { name: 'Soccer', icon: <FaFutbol /> },
+    { name: 'Cricket', icon: <FaBaseballBall /> },
+    { name: 'Football', icon: <FaFutbol /> },
     { name: 'Tennis', icon: <FaTableTennis /> },
     { name: 'Basketball', icon: <FaBasketballBall /> },
     { name: 'Volleyball', icon: <FaVolleyballBall /> },
@@ -36,7 +38,9 @@ const Navigation = () => {
     { name: 'Esports', icon: <FaGamepad /> },
   ];
 
-  const handleSportClick = (sport) => {
+  const handleSportClick = (e, sport) => {
+    e.preventDefault();
+    setSelectedSport(sport);
   };
 
   return (
@@ -46,13 +50,13 @@ const Navigation = () => {
           {sports.map((sport) => (
             <NavLink
               key={sport.name}
-              to={sport.name.toLowerCase() === 'inplay' 
-                ? '/inplay' 
-                : sport.name.toLowerCase() === 'casino'
-                ? '/casino'
-                : `/sports/${sport.name.toLowerCase().replace(/\s+/g, '-')}`}
-              className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
-              onClick={() => handleSportClick(sport.name.toLowerCase())}
+              // to={sport.name.toLowerCase() === 'inplay'
+              //   ? '/inplay'
+              //   : sport.name.toLowerCase() === 'casino'
+              //     ? '/casino'
+              //     : `/sports/${sport.name.toLowerCase().replace(/\s+/g, '-')}`}
+              className={({ isActive }) => (isActive && selectedSport == sport.name.toLowerCase()) ? 'nav-link active' : 'nav-link'}
+              onClick={(e) => handleSportClick(e, sport.name.toLowerCase())}
             >
               <span className="nav-icon">{sport.icon}</span>
               <span className="nav-text">{sport.name}</span>
@@ -60,6 +64,8 @@ const Navigation = () => {
           ))}
         </div>
       </div>
+      {!selectedSport && <Banner />}
+      {selectedSport && <SportPage isLoggedIn={isLoggedIn} logOut={logOut} selectedSport={selectedSport} />}
     </nav>
   );
 };
