@@ -8,11 +8,11 @@ import { httpHelpers } from '../services/httpHelpers';
 import TokenService from '../services/token-service';
 // import ProfileSidebar from './ProfileSideBar';
 
-const Header = ({ 
-  isLoginOpen, 
-  openLoginModal, 
-  closeLoginModal, 
-  isSidebarOpen, 
+const Header = ({
+  isLoginOpen,
+  openLoginModal,
+  closeLoginModal,
+  isSidebarOpen,
   setIsSidebarOpen,
   isLoggedIn,
   onLogout,
@@ -33,10 +33,10 @@ const Header = ({
 
   useEffect(() => {
     let intervalId;
-    
+
     const fetchBalance = () => {
       if (!isLoggedIn) return;
-      
+
       api.get('gamma/getBalance')
         .then(res => {
           setBalance(res.data);
@@ -58,24 +58,24 @@ const Header = ({
     } else {
       setBalance(0);
       setBalanceError(null);
-       {
-            const newUser = TokenService.getUser();
-            if (newUser) {
-                setBalance(newUser.balance);
-            }
+      {
+        const newUser = TokenService.getUser();
+        if (newUser) {
+          setBalance(newUser.balance);
         }
+      }
     }
 
     return () => {
       if (intervalId) clearInterval(intervalId);
     };
-  }, [isLoggedIn, api, onLogout]);
+  }, [isLoggedIn]);
 
   return (
     <>
       <header className="header">
         <div className="header-left">
-          <button 
+          <button
             className="menu-toggle"
             onClick={toggleSidebar}
             aria-label="Toggle menu"
@@ -150,7 +150,7 @@ const Header = ({
             <span className="sidebar-logo-text">PUNT</span>
             <span className="sidebar-logo-text">EXCH</span>
           </div>
-          <button 
+          <button
             className="sidebar-close"
             onClick={toggleSidebar}
             aria-label="Close menu"
@@ -167,8 +167,8 @@ const Header = ({
             </a>
             {isLoggedIn ? (
               <>
-               
-                <button 
+
+                <button
                   className="quick-menu-item logout-btn"
                   onClick={onLogout}
                 >
@@ -177,7 +177,7 @@ const Header = ({
                 </button>
               </>
             ) : (
-              <button 
+              <button
                 className="quick-menu-item"
                 onClick={openLoginModal}
               >
@@ -186,7 +186,7 @@ const Header = ({
               </button>
             )}
           </div>
-          
+
           <nav className="sidebar-nav">
             <Navigation />
           </nav>
@@ -198,17 +198,17 @@ const Header = ({
       </aside>
 
       {isSidebarOpen && (
-        <div 
-          className="sidebar-overlay" 
+        <div
+          className="sidebar-overlay"
           onClick={toggleSidebar}
           aria-label="Close sidebar"
         />
       )}
 
       {isLoginOpen && (
-        <LoginPage 
-          closeLogin={closeLoginModal} 
-          onLoginSuccess={onLoginSuccess} 
+        <LoginPage
+          closeLogin={closeLoginModal}
+          onLoginSuccess={onLoginSuccess}
         />
       )}
     </>
