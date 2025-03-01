@@ -18,7 +18,6 @@ import {
 import './Navigation.css';
 
 const Navigation = () => {
-  const [selectedSport, setSelectedSport] = useState('cricket');
 
   const sports = [
     { name: 'Inplay', icon: <FaClock /> },

@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import FooterMenu from './components/FooterMenu';
 import Header from './components/Header';
-import Navigation from './components/Navigation';
 import SportPage from './pages/SportPage';
 import InplayPage from './pages/InplayPage';
 import CasinoPage from './pages/CasinoPage';
@@ -15,6 +14,8 @@ import MatchDetailsPage from './pages/MatchDetailsPage';
 import ProfileSidebar from './components/ProfileSideBar';
 import TokenService from './services/token-service';
 import ChangePassword from './components/ChangePassword';
+import PushpaRani from './components/pushpa-rani/PusphpaRani';
+import Aviator from './components/Aviator/Aviator';
 import './App.css';
 
 const AppContent = () => {
@@ -92,7 +93,7 @@ const AppContent = () => {
         user={user}
       />
 
-      <Navigation />
+      {/* <Navigation /> */}
 
       {/* Ensure only Profile Sidebar opens when Profile button is clicked */}
       {isLoggedIn && (
