@@ -88,6 +88,8 @@ button{
 
 /* Multiplier marquee */
 .pushpa-multiplier-container {
+    display: flex;
+    justify-content: space-between;
     overflow: hidden;
     padding: 0.5rem 0;
     background-color: #222;
@@ -95,6 +97,8 @@ button{
 
 .pushpa-multiplier-scroll {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
     animation: scroll 20s linear infinite;
     padding: 0 1rem;
@@ -102,9 +106,37 @@ button{
 
 .pushpa-multiplier {
     white-space: nowrap;
+    font-size: 0.5;
     font-weight: bold;
 }
 
+@media screen and (max-width: 550px) {
+    .pushpa-multiplier-scroll {
+        gap: 1rem;
+    }
+    .pushpa-multiplier-input{
+        font-size: 0.5rem;
+        padding: 0.3rem 1.0rem 0.3rem 0.3em;
+    }
+    .pushpa-multiplier-input:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .pushpa-multiplier-scroll {
+        gap: 0.5rem;
+    }
+    .pushpa-multiplier-input{
+        font-size: 0.5rem;
+        padding: 0.3rem 1.0rem 0.3rem 0.3em;
+    }
+    .pushpa-multiplier-input:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+}
 /* Game window */
 .pushpa-game-window {
     display: flex;
