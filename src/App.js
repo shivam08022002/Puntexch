@@ -17,9 +17,8 @@ import ChangePassword from './components/ChangePassword';
 import PushpaRani from './components/pushpa-rani/PusphpaRani';
 import Aviator from './components/Aviator/Aviator';
 import './App.css';
-import Aviator from './components/Aviator/Aviator';
-import PushpaRani from './components/pushpa-rani/PusphpaRani'
 import MarqueeText from './components/MarqueeText';
+import Navigation from './components/Navigation';
 
 const AppContent = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
