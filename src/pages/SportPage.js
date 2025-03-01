@@ -10,11 +10,6 @@ const SportPage = ({ isLoggedIn, logOut, selectedSport }) => {
   const api = httpHelpers();
   let navigate = useNavigate();
 
-  const handleMatchClick = (e, match) => {
-    e.preventDefault();
-    navigate(`matchscreen/${selectedSport}/${match.id}/${match.name}`);
-  };
-
   const fetchCricketMatches = async () => {
     api
       .get(`${getLiveGames}` + `${selectedSport != "inplay" ? '?sportType=' + selectedSport : ''}` + '&matchStatus=LIVE')
