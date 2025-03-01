@@ -8,7 +8,7 @@ const ResponseFile = () => {
     // Function to call the login API
     const login = async () => {
         try {
-            const apiUrl = 'https://ag.play-247.in/games/rest/v1/user/authenticate'; // Replace with your actual API URL
+            const apiUrl = 'https://play-247.in/games/rest/v1/user/authenticate'; // Replace with your actual API URL
             console.log("file called");
             // Send POST request with username and password in the body
             const response = await fetch(apiUrl, {

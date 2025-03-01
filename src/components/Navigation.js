@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   FaClock,
@@ -6,7 +6,7 @@ import {
   FaFutbol,
   FaTableTennis,
   FaBasketballBall,
-  FaDice,
+  // FaDice,
   FaHorse,
   FaVolleyballBall,
   FaHockeyPuck,
@@ -27,7 +27,7 @@ const Navigation = () => {
     { name: 'Tennis', icon: <FaTableTennis /> },
     { name: 'Basketball', icon: <FaBasketballBall /> },
     { name: 'Volleyball', icon: <FaVolleyballBall /> },
-    { name: 'Casino', icon: <FaDice /> },
+    // { name: 'Casino', icon: <FaDice /> },
     { name: 'Horse Racing', icon: <FaHorse /> },
     { name: 'Ice Hockey', icon: <FaHockeyPuck /> },
     { name: 'Boxing', icon: <FaFistRaised /> },
@@ -37,7 +37,6 @@ const Navigation = () => {
   ];
 
   const handleSportClick = (sport) => {
-    setSelectedSport(sport);
   };
 
   return (
