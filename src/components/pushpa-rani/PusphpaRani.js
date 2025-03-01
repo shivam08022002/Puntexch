@@ -25,13 +25,13 @@ const Multipliers = () => (
       <div className="pushpa-multiplier" style={{ color: '#ff0' }}>1.77x</div>
       <div className="pushpa-multiplier" style={{ color: '#f00' }}>1.24x</div>
       <div className="pushpa-multiplier" style={{ color: '#f0f' }}>9.80x</div>
-      <div className='histry-container'>
+    </div>
+    <div className='histry-container'>
               <button className="histry-button">
             <FaHistory className="histry-icon" />
             <span className="dropdown-arr">▼</span>
             </button>
             </div>
-    </div>
     {/* <div className="pushpa-dropdown-history">
       <svg 
         width="20" 
