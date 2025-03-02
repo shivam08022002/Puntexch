@@ -20,6 +20,7 @@ import {
 
 // Odds Market
 const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
+  console.log("OddsMarket", marketType, oddsList);
   let teamA;
   let teamB;
   let theDraw;
@@ -109,70 +110,13 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
   //   }
   // ];
 
-  <div className="market-section">
-    <div className="market-header">
-      <div className="market-title">
-        {marketType}
-        <span className="cash-out">CASH OUT</span>
-      </div>
-      <div className="market-actions">
-        <button className="action-btn"><FaExchangeAlt /></button>
-        <button className="action-btn"><FaChartLine /></button>
-        <button className="action-btn"><FaLock /></button>
-      </div>
-    </div>
-
-    <div className="odds-table-container">
-      <div className="odds-table">
-        <div className="table-header">
-          <div>Teams</div>
-          <div className="back-header">
-            <div>Back</div>
-          </div>
-          <div className="lay-header">
-            <div>Lay</div>
-          </div>
-        </div>
-
-        {teams && teams.map((team, index) => (
-          <div className="team-row">
-            <div className="team-name">{team.name}</div>
-            <div className="odds-group">
-              <div key={`back-${index}`} className="odds-box back">
-                <span className="price">{team.backRate}</span>
-                <span className="amount">{team.backStake}</span>
-              </div>
-            </div>
-            <div className="odds-group">
-              <div key={`lay-${index}`} className="odds-box lay">
-                <span className="price">{team.layRate}</span>
-                <span className="amount">{team.layStake}</span>
-              </div>
-            </div>
-          </div>
-        ))}
-        <div className="bet-limits">
-          Min: {minBet} | Max: {maxBet}
-        </div>
-      </div>
-    </div>
-  </div>
-}
-
-// Session Market Component
-const SessionMarket = ({ oddsList, minBet, maxBet, waitTime }) => {
-  let hasOdds = false;
-
-  oddsList.forEach((odds, index) => {
-    hasOdds = true;
-  });
-
-  {
-    hasOdds && <div className="market-section">
+  console.log("OddsMarket 1", teams);
+  return (
+    <div className="market-section">
       <div className="market-header">
         <div className="market-title">
-          Session Market
-          <FaCheck className="check-icon" />
+          {marketType}
+          <span className="cash-out">CASH OUT</span>
         </div>
         <div className="market-actions">
           <button className="action-btn"><FaExchangeAlt /></button>
@@ -180,33 +124,94 @@ const SessionMarket = ({ oddsList, minBet, maxBet, waitTime }) => {
           <button className="action-btn"><FaLock /></button>
         </div>
       </div>
-      <div className="odds-table">
-        <div className="table-header">
-          <div>Session</div>
-          <div className="back-header">
-            <div>No</div>
+
+      <div className="odds-table-container">
+        <div className="odds-table">
+          <div className="table-header">
+            <div>Teams</div>
+            <div className="back-header">
+              <div>Back</div>
+            </div>
+            <div className="lay-header">
+              <div>Lay</div>
+            </div>
           </div>
-          <div className="lay-header">
-            <div>Yes</div>
+
+          {teams && teams.map((team, index) => (
+            <div className="team-row">
+              <div className="team-name">{team.name}</div>
+              <div className="odds-group">
+                <div key={`back-${index}`} className="odds-box back">
+                  <span className="price">{team.backRate}</span>
+                  <span className="amount">{team.backStake}K</span>
+                </div>
+              </div>
+              <div className="odds-group">
+                <div key={`lay-${index}`} className="odds-box lay">
+                  <span className="price">{team.layRate}</span>
+                  <span className="amount">{team.layStake}K</span>
+                </div>
+              </div>
+            </div>
+          ))}
+          <div className="bet-limits">
+            Min: {minBet} | Max: {maxBet}
           </div>
-        </div>
-        {oddsList.map((team, index) => (<div className="team-row">
-          <div className="team-name">{team.marketName}</div>
-          <div className="odds-box back">
-            <span className="price">{team.noValue}</span>
-            <span className="amount">{team.noRate}</span>
-          </div>
-          <div className="odds-box lay">
-            <span className="price">{team.yesValue}</span>
-            <span className="amount">{team.yesRate}</span>
-          </div>
-        </div>))}
-        <div className="bet-limits">
-          Min: {minBet} | Max: {maxBet}
         </div>
       </div>
     </div>
-  }
+  )
+};
+
+// Session Market Component
+const SessionMarket = ({ oddsList, minBet, maxBet, waitTime }) => {
+  let hasOdds = false;
+
+  if (oddsList.length > 0)
+    hasOdds = true;
+
+  return (
+    <div>
+      {hasOdds && <div className="market-section">
+        <div className="market-header">
+          <div className="market-title">
+            Session Market
+            <FaCheck className="check-icon" />
+          </div>
+          <div className="market-actions">
+            <button className="action-btn"><FaExchangeAlt /></button>
+            <button className="action-btn"><FaChartLine /></button>
+            <button className="action-btn"><FaLock /></button>
+          </div>
+        </div>
+        <div className="odds-table">
+          <div className="table-header">
+            <div>Session</div>
+            <div className="back-header">
+              <div>No</div>
+            </div>
+            <div className="lay-header">
+              <div>Yes</div>
+            </div>
+          </div>
+          {oddsList.map((team, index) => (<div className="team-row">
+            <div className="team-name">{team.marketName}</div>
+            <div className="odds-box back">
+              <span className="price">{team.noValue}</span>
+              <span className="amount">{team.noRate}</span>
+            </div>
+            <div className="odds-box lay">
+              <span className="price">{team.yesValue}</span>
+              <span className="amount">{team.yesRate}</span>
+            </div>
+          </div>))}
+          <div className="bet-limits">
+            Min: {minBet} | Max: {maxBet}
+          </div>
+        </div>
+      </div>}
+    </div>
+  )
 }
 
 // Ball By Ball Component
@@ -387,12 +392,12 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
       case 'all':
         return (
           <div className="all-markets">
-            {fancyContainer && fancyContainer.marketList && fancyContainer.marketList.length == 0 && <SessionMarket oddsList={fancyContainer.marketList} minBet={fancyContainer.minBet} maxBet={fancyContainer.maxBet} waitTime={fancyContainer.waitTime} />}
+            {fancyContainer && fancyContainer.marketList && fancyContainer.marketList.length > 0 && <SessionMarket oddsList={fancyContainer.marketList} minBet={fancyContainer.minBet} maxBet={fancyContainer.maxBet} waitTime={fancyContainer.waitTime} />}
             <BallByBallMarket />
           </div>
         );
       case 'Session':
-        return <div>{fancyContainer && fancyContainer.marketList && fancyContainer.marketList.length == 0 && <SessionMarket oddsList={fancyContainer.marketList} minBet={fancyContainer.minBet} maxBet={fancyContainer.maxBet} waitTime={fancyContainer.waitTime} />}</div>
+        return <div>{fancyContainer && fancyContainer.marketList && fancyContainer.marketList.length > 0 && <SessionMarket oddsList={fancyContainer.marketList} minBet={fancyContainer.minBet} maxBet={fancyContainer.maxBet} waitTime={fancyContainer.waitTime} />}</div>
       case 'ball':
         return <BallByBallMarket />;
       default:
@@ -460,9 +465,9 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
         </div>
       </div>}
 
-      {tossContainer && tossContainer.marketList && tossContainer.marketList.length == 0 && <OddsMarket marketType={TOSS_ODDS} oddsList={tossContainer.marketList} minBet={tossContainer.minBet} maxBet={tossContainer.maxBet} waitTime={tossContainer.waitTime} />}
-      {matchOddsContainer && matchOddsContainer.marketList && matchOddsContainer.marketList.length == 0 && <OddsMarket marketType={MATCH_ODDS} oddsList={matchOddsContainer.marketList} minBet={matchOddsContainer.minBet} maxBet={matchOddsContainer.maxBet} waitTime={matchOddsContainer.waitTime} />}
-      {bookmakerOddsContainer && bookmakerOddsContainer.marketList && bookmakerOddsContainer.marketList.length == 0 && <OddsMarket marketType={BOOKMAKER} oddsList={bookmakerOddsContainer.marketList} minBet={bookmakerOddsContainer.minBet} maxBet={bookmakerOddsContainer.maxBet} waitTime={bookmakerOddsContainer.waitTime} />}
+      {tossContainer && tossContainer.marketList && tossContainer.marketList.length > 0 && <OddsMarket marketType={TOSS_ODDS} oddsList={tossContainer.marketList} minBet={tossContainer.minBet} maxBet={tossContainer.maxBet} waitTime={tossContainer.waitTime} />}
+      {matchOddsContainer && matchOddsContainer.marketList && matchOddsContainer.marketList.length > 0 && <OddsMarket marketType={MATCH_ODDS} oddsList={matchOddsContainer.marketList} minBet={matchOddsContainer.minBet} maxBet={matchOddsContainer.maxBet} waitTime={matchOddsContainer.waitTime} />}
+      {bookmakerOddsContainer && bookmakerOddsContainer.marketList && bookmakerOddsContainer.marketList.length > 0 && <OddsMarket marketType={BOOKMAKER} oddsList={bookmakerOddsContainer.marketList} minBet={bookmakerOddsContainer.minBet} maxBet={bookmakerOddsContainer.maxBet} waitTime={bookmakerOddsContainer.waitTime} />}
 
       <div className="markets-container">
         <div className="market-types-nav">
