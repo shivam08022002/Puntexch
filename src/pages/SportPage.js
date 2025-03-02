@@ -3,8 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 import MatchTable from '../components/MatchTable';
 import './SportPage.css';
 import { httpHelpers } from "../services/httpHelpers";
+import {
+  CRICKET
+} from '../common/constants';
 
 const SportPage = ({ isLoggedIn, logOut, selectedSport }) => {
+  console.log("selectedSport", selectedSport);
   const getLiveGames = "/gamma/getAllMatches";
   const [matches, setMatches] = useState(null);
   const api = httpHelpers();
@@ -109,7 +113,7 @@ const SportPage = ({ isLoggedIn, logOut, selectedSport }) => {
         </div>
       </div>
 
-      {matches && <div className="sport-content">
+      {matches &&<div className="sport-content">
         <MatchTable
           sport={{
             name: currentSportName,

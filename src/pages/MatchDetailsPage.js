@@ -20,7 +20,6 @@ import {
 
 // Odds Market
 const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
-  console.log("OddsMarket", marketType, oddsList);
   let teamA;
   let teamB;
   let theDraw;
@@ -30,7 +29,6 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
   let hasOdds = false;
 
   oddsList.forEach((odds) => {
-    // console.log("market bet panel", odds.nation);
     if (odds.nation === "Yes" || odds.nation === "YES") {
       if (odds.marketName === "Tied Match" || odds.marketName === "TIED_MATCH") {
         hasOdds = true;
@@ -110,7 +108,6 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
   //   }
   // ];
 
-  console.log("OddsMarket 1", teams);
   return (
     <div className="market-section">
       <div className="market-header">
@@ -293,7 +290,6 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
 
   const api = httpHelpers();
   const getOFBRates = "/gamma/getMatchById?matchId=" + id;
-  const [matchMarkets, setMatchMarkets] = useState();
   const [matchDetails, setMatchDetails] = useState();
   const [videoLink, setVideoLink] = useState();
 
@@ -322,11 +318,9 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
                 setFancyContainer(null);
               }
               if (res.data.matchScore && !matchDetails) {
-                console.log(res.data.matchScore);
                 setMatchDetails(res.data.matchScore);
               }
               if (res.data.videoLink && !videoLink) {
-                console.log(res.data.videoLink);
                 setVideoLink(res.data.videoLink);
               }
               if (res.data.tossContainer) {
@@ -442,6 +436,10 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
               <div className="match-teams">
                 <h1>{matchResponse.name}</h1>
               </div>
+              <iframe
+                src={matchDetails}
+                title={matchResponse && matchResponse.name}
+              />
             </div>
           </div>
         </div>
@@ -456,8 +454,18 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
               <div className="live-tv-content">
                 <div className="tv-placeholder">
                   <FaTv className="large-tv-icon" />
-                  <p>Live streaming is available for this match</p>
-                  <button className="watch-live-btn">Watch Live</button>
+                  {videoLink ? (
+                    <iframe
+                      src={videoLink}
+                      title="Live Stream"
+                      className="live-stream-frame"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <div className="no-stream-message">
+                      <span>Live stream not available</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
