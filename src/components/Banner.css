@@ -3,8 +3,9 @@
   width: 100%;
   height: 100%;
   margin: 2px 0 0 0;
-  border-radius: 10px;
-  padding: 3px;
+  border-radius: 15px;
+  padding: 10px ;
+  padding-bottom: 0%;
   /* background-size: cover;   */
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.085);
@@ -14,14 +15,16 @@
 
 .banner-slide {
   position: relative;
-  height:350px;
+  height:300px;
   width: 100%;
+  border-radius: 15px;
   padding: 5px;
   content-fit: cover;  
   border-radius: 10px;
   border: 0.5px solid #241d1d;
-
 } 
+
+
 /* 
 .banner-content {
   position: absolute;
@@ -84,13 +87,21 @@
 .slick-next {
   right: 15px;
 }
-
+.slick-arrow{
+  height: 30px;
+  width: auto;
+}
 /* Responsive styles */
 @media (max-width: 768px) {
+  .banner-container{
+    padding:10px 0 0 0;
+    /* padding-top: 10px; */
+
+  }
   .banner-slide {
     object-fit: cover;  
-
-    height: 250px;
+    /* padding-top: 10px; */
+    height: 200px;
   }
 
   .banner-title {
@@ -107,13 +118,22 @@
 }
 
 @media (max-width: 480px) {
+  .banner-container {
+    width: 100%;
+    height: 100%;
+    /* margin: 2px 0 0 0; */
+    border-radius: 10px;
+    padding: 0px;
+    padding-top: 5px;
+  }
   .banner-slide {
-    object-fit: cover;  
 
-    height: 180px;
+    object-fit: cover;  
+    padding: 0%;
+    height: 130px;
   }
 
-  .banner-title {
+  /* .banner-title {
     font-size: 24px;
   }
 
@@ -123,7 +143,7 @@
 
   .banner-date {
     font-size: 12px;
-  }
+  } */
 
   /* .banner-content {
     padding: 1px;; */

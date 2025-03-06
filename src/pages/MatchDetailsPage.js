@@ -111,45 +111,49 @@ const OddsMarket = ({ marketType, oddsList, minBet, maxBet, waitTime }) => {
   return (
     <div className="market-section">
       <div className="market-header">
+        
         <div className="market-title">
+          
           {marketType}
           <span className="cash-out">CASH OUT</span>
         </div>
-        <div className="market-actions">
+
+       
+        {/* <div className="market-actions">
           <button className="action-btn"><FaExchangeAlt /></button>
           <button className="action-btn"><FaChartLine /></button>
           <button className="action-btn"><FaLock /></button>
-        </div>
+        </div> */}
       </div>
 
       <div className="odds-table-container">
+
         <div className="odds-table">
-          <div className="table-header">
-            <div>Teams</div>
+        <div className="table-header">
+        <div className="match-type-header" >Team</div>
             <div className="back-header">
               <div>Back</div>
             </div>
             <div className="lay-header">
               <div>Lay</div>
             </div>
-          </div>
-
+        </div>
           {teams && teams.map((team, index) => (
             <div className="team-row">
               <div className="team-name">{team.name}</div>
-              <div className="odds-group">
+              {/* <div className="odds-group"> */}
                 <div key={`back-${index}`} className="odds-box back">
                   <span className="price">{team.backRate}</span>
                   <span className="amount">{team.backStake}K</span>
                 </div>
-              </div>
-              <div className="odds-group">
+              {/* </div> */}
+              {/* <div className="odds-group"> */}
                 <div key={`lay-${index}`} className="odds-box lay">
                   <span className="price">{team.layRate}</span>
                   <span className="amount">{team.layStake}K</span>
                 </div>
               </div>
-            </div>
+            // </div>
           ))}
           <div className="bet-limits">
             Min: {minBet} | Max: {maxBet}
@@ -173,17 +177,17 @@ const SessionMarket = ({ oddsList, minBet, maxBet, waitTime }) => {
         <div className="market-header">
           <div className="market-title">
             Session Market
-            <FaCheck className="check-icon" />
+            {/* <FaCheck className="check-icon" /> */}
           </div>
-          <div className="market-actions">
+          {/* <div className="market-actions">
             <button className="action-btn"><FaExchangeAlt /></button>
             <button className="action-btn"><FaChartLine /></button>
             <button className="action-btn"><FaLock /></button>
-          </div>
+          </div> */}
         </div>
         <div className="odds-table">
           <div className="table-header">
-            <div>Session</div>
+            <div className="match-type-header">Session</div>
             <div className="back-header">
               <div>No</div>
             </div>
@@ -219,11 +223,11 @@ const BallByBallMarket = () => {
         <FaCheck className="check-icon" />
       </div>
 
-      <div className="market-actions">
+      {/* <div className="market-actions">
         <button className="action-btn"><FaExchangeAlt /></button>
         <button className="action-btn"><FaChartLine /></button>
         <button className="action-btn"><FaLock /></button>
-      </div>
+      </div> */}
     </div>
     <div className="odds-table">
       <div className="table-header">
@@ -415,47 +419,25 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
           Live TV
         </button>
       </div>
-
-      {matchResponse && <div className="match-details-content">
+     <div className="match-detail-container"> 
+      {matchResponse && <div className="match-details-content" style = {{display:'flex',flexDirection:'column'}} >
         <div className={`match-details-main ${selectedTab === 'scoreboard' ? 'active' : ''}`}>
-          <div>
-
-            <div className="graph-section">
-              <div className="graph-team">Graph section</div>
-              <div className="graph-line">
-                <div className="graph-dot" style={{ left: '60%' }}></div>
-              </div>
-              <div className="graph-team"></div>
-            </div>
-
-            <div className="match-header">
-              <div className="match-time">
-                <span>{matchResponse.openDate}</span>
-                <span className="status">{matchResponse.matchStatus}</span>
-              </div>
-              <div className="match-teams">
-                <h1>{matchResponse.name}</h1>
-              </div>
-              <iframe
+          
+            <div className="graph-section" > 
+              <div className="scrbrd-container" >
+              <iframe style={{width:'100%',height:'100%',margin:'0 ',padding:'0'}} 
+              // src="https://www.flashscore.com/match/1J1Q6Q8b" title="/" frameborder="0" scrolling="no"
                 src={matchDetails}
                 title={matchResponse && matchResponse.name}
-              />
+             /> 
             </div>
-          </div>
-        </div>
-
-        <div className="tv-screen-tab">
+            </div>
+           </div>
           <div className={`live-tv-section ${selectedTab === 'tv' ? 'active' : ''}`}>
             <div className="tv-container">
-              <div className="live-tv-header">
-                <FaTv className="tv-icon" />
-                <span>Live TV</span>
-              </div>
-              <div className="live-tv-content">
-                <div className="tv-placeholder">
-                  <FaTv className="large-tv-icon" />
+              {/* <div className="live-tv-content"> */}
                   {videoLink ? (
-                    <iframe
+                    <iframe  style={{width:'100%', height:'100%',margin:'0 ',padding:'0'}}
                       src={videoLink}
                       title="Live Stream"
                       className="live-stream-frame"
@@ -466,12 +448,22 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
                       <span>Live stream not available</span>
                     </div>
                   )}
-                </div>
-              </div>
+                
+              {/* </div> */}
             </div>
           </div>
-        </div>
-      </div>}
+        
+        <div className="match-header">
+              <div className="match-time">
+                <span>{matchResponse.openDate}</span>
+                <span className="status">{matchResponse.matchStatus}</span>
+              </div>
+              <div className="match-teams">
+                <h1>{matchResponse.name}</h1>
+              </div>
+            </div>
+      </div>
+      }
 
       {tossContainer && tossContainer.marketList && tossContainer.marketList.length > 0 && <OddsMarket marketType={TOSS_ODDS} oddsList={tossContainer.marketList} minBet={tossContainer.minBet} maxBet={tossContainer.maxBet} waitTime={tossContainer.waitTime} />}
       {matchOddsContainer && matchOddsContainer.marketList && matchOddsContainer.marketList.length > 0 && <OddsMarket marketType={MATCH_ODDS} oddsList={matchOddsContainer.marketList} minBet={matchOddsContainer.minBet} maxBet={matchOddsContainer.maxBet} waitTime={matchOddsContainer.waitTime} />}
@@ -493,6 +485,7 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
         <div className="market-content">
           {renderMarketContent()}
         </div>
+      </div>
       </div>
     </div>
   );

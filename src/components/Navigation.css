@@ -2,8 +2,9 @@
 .navigation {
   background: linear-gradient(45deg, #000000, #000000c8); /* Matches Header gradient */
   color: #ffffff;
-  padding: 10px 20px; /* Matches Header padding */
-  position: sticky;
+  padding: 10px 10px; /* Matches Header padding */
+  position: relative; /*
+
   top: 0;
   z-index: 100; /* Changed from -0 to ensure navigation stays on top */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Same shadow as Header */
@@ -13,7 +14,7 @@ button{
   -webkit-tap-highlight-color: transparent;
 }
 .nav-content {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
   display: flex;
   justify-content: flex-start; /* Changed from space-between since we removed buttons */
@@ -120,21 +121,27 @@ button{
 
 @media (max-width: 480px) {
   .navigation {
-    padding: 10px;
+    padding: 5px;
+    padding-top: 8px;
+
+    
+    /* padding-bottom: 0%; */
+
   }
   .navigation::-webkit-scrollbar {
     width: 2px;
   }
   .nav-content {
-    gap: 12px;
+    gap: 10px;
   }
 
   .nav-links {
     width: 100%;
+    gap: 15px;
   }
 
   .nav-link {
-    padding: 6px 12px;
+    padding: 6px 10px;
     font-size: 12px;
   }
 

@@ -9,18 +9,18 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(0, 0, 0);
 
 }
 .sport-header {
-  margin-top: 1px;
+  margin-top: 0px;
  
   border-radius: 10px 10px 0 0;
 }
 
 .sport-banner {
   width: 100%;
-  height: 160px;
+  height: 300px;
   border-radius: 15px;
   border: 0.5px solid #241d1d;
   margin: 2px;
@@ -77,14 +77,7 @@ button {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.sport-section {
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 10px; /* Rounded corners for sport sections */
-  
-}
+
 .play-now-btn:hover {
   background: #6b1111;
 
@@ -92,7 +85,7 @@ button {
 .sport-icon {
   font-size: 40px; /* Adjust icon size */
   margin-right: 15px;
-  color: white; /* Adjust color to match your banner */
+  color: rgb(255, 255, 255); /* Adjust color to match your banner */
 }
 
 .banner-icon {
@@ -103,25 +96,54 @@ button {
 .sport-content {
   width: 100%;
   height: 100%;
-  padding: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  padding: 0px;
+  margin-top: 5px;
+  background: transparent;
   border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.484);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
 .sport-content:hover {
   transform: none;
+  border-radius: 10px;
+
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .sport-content::before {
   display: none;
+  border-radius: 10px;
+
 }
 
 .sport-content > * {
   position: relative;
   z-index: 1;
+  border-radius: 8px;
+
+}
+
+.loading-message,
+.no-matches-message {
+  text-align: center;
+  padding: 0.8rem;
+  background: #E9E9E9;
+  color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 0.8rem;
+}
+
+.no-matches-message h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.no-matches-message p {
+  color: #666;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -130,6 +152,7 @@ button {
   }
 
   .sport-banner {
+    height: 200px;
     padding: 40px 20px;
     flex-direction: column;
     text-align: center;
@@ -147,20 +170,20 @@ button {
     padding: 10px 20px;
     font-size: 14px;
   }
-
-  .sport-content {
-    padding: 3px;
-  }
 }
 
 @media (max-width: 480px) {
   .sport-page {
-    margin: 3px;
-    padding: 2px;
+    margin: 2px 0 0 0;
+    padding: 0;
+    padding-top: 3px;
+    /* margin-bottom: 2px; */
   }
 
   .sport-banner {
+    height: 130px;
     padding: 30px 15px;
+    border-radius: 10px;
   }
 
   .banner-text h1 {
@@ -177,7 +200,8 @@ button {
   }
 
   .sport-content {
-    padding: 1px;
+    padding: 0px;
+    border-radius: 10px;
     /* margin: 2px; */
   }
 }

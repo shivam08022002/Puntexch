@@ -45,9 +45,7 @@ const ResponseFile = () => {
         login(); // You can call login inside useEffect or trigger it via button click or form submit
     }, []); // Empty array means it runs once when the component mounts
 
-  return (
-    <div>ResponseFile</div>
-  )
+  return
 }
 
 export default ResponseFile

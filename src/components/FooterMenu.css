@@ -36,7 +36,7 @@ menu link{
 .menu-item {
   flex: 1;
   height: 100%;
-  max-width: 100px;
+  max-width: 80px;
 }
 
 .menu-link {
@@ -61,14 +61,13 @@ menu link{
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 50%;
   background: linear-gradient(145deg, rgba(0, 0, 0, 0.6), rgba(20, 20, 20, 0.4));
-  border: 1px solid rgba(255, 255, 254, 0.234);
+  border: 1px solid rgba(255, 255, 254, 0.1);
   transition: all 0.3s ease;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
-  }
-
+}
 
 .icon-box::before {
   content: '';
@@ -128,7 +127,7 @@ menu link{
 }
 
 /* Active Indicator */
-.menu-link.active::after {
+/* .menu-link.active::after {
   content: '';
   position: absolute;
   top: 0;
@@ -140,7 +139,80 @@ menu link{
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
   -webkit-tap-highlight-color: transparent;
+} */
 
+/* Home Button Styles */
+.home-icon-box {
+  position: relative;
+  /* margin-top: -25px;
+  width: 48px !important;
+  height: 48px !important; */
+  background: #030f2f !important; /* Dark blue as you specified */
+  border-radius: 50% !important;
+  background: #030f2f !important;
+  /* box-shadow: 4.1px -5px 0 0 rgb(174, 193, 236); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Create the outer ring/gap effect */
+.home-icon-box::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  background: #1a82ff; /* Light blue for the outer circle */
+  border-radius: 50%;
+  /* box-shadow: 4.1px -5px 0 0 rgb(174, 193, 236); */
+  z-index: -1;
+}
+
+/* Create the background that shows through the gap */
+.home-icon-box::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: #000000; /* Dark background color from your navigation */
+  border-radius: 50%;
+  /* box-shadow: -4.1px 5px 0 0 rgb(151, 173, 221); */
+  z-index: -2;
+}
+
+.home-icon-box svg {
+  font-size: 22px !important;
+  color: #ffffff;
+}
+
+.home-button span {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #ffffffb3;
+}
+
+.home-button:hover .home-icon-box,
+.home-button.active .home-icon-box {
+  margin-top: -25px;
+  width: 48px !important;
+  height: 48px !important;
+  border: #000000;
+  background: #030f2f !important;
+  /* box-shadow: -1px 8px 0 2px rgb(12, 19, 33),  1px 8px 0px 2px rgb(12, 19, 33); */
+  /* z-index: 2; */
+
+}
+
+/* Transition for smoother hover effects */
+.home-icon-box, 
+.home-icon-box::before, 
+.home-icon-box::after {
+  transition: all 0.3s ease;
 }
 
 /* Responsive Design */
@@ -150,8 +222,8 @@ menu link{
   }
 
   .icon-box {
-    width: 44px;
-    height: 44px;
+    width: 35px;
+    height: 36px;
   }
 
   .menu-link svg {
@@ -174,7 +246,7 @@ menu link{
   }
 
   .icon-box {
-    width: 36px;
+    width: 35px;
     height: 36px;
   }
 
@@ -262,5 +334,4 @@ menu link{
 .menu-item:nth-child(2) { animation-delay: 0.2s; }
 .menu-item:nth-child(3) { animation-delay: 0.3s; }
 .menu-item:nth-child(4) { animation-delay: 0.4s; }
-  
-  
+.menu-item:nth-child(5) { animation-delay: 0.5s; }

@@ -28,7 +28,10 @@ const LoginPage = ({ closeLogin, onLoginSuccess }) => {
         }
         return captcha;
     };
-
+        useEffect(() => {
+            window.scrollTo(0,0);
+        }, []);
+        
     const drawCaptcha = () => {
         const captcha = generateCaptchaText();
         setCaptchaText(captcha);

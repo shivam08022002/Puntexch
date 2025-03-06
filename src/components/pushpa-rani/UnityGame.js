@@ -128,6 +128,15 @@ export default function UnityGame() {
           sendMessage("GameManager", "crashingPlane", isPlaneCrashed ? "true" : "false"); // Send the crash state as a string
         }
       }, [isPlaneCrashed, isLoaded]); // Send updated crash state to Unity when it changes
+          
+      // To Stop the music running in background
+    useEffect(() => {
+      return () => {
+          if (isLoaded) {
+              sendMessage("GameManager", "quitGame"); // Call Unity function to stop sounds
+          }
+      };
+    }, [isLoaded]);
 
       return (
         <div className="pushpa-unity-container">
@@ -138,7 +147,15 @@ export default function UnityGame() {
             </div>
           )}
 
-          <Unity unityProvider={unityProvider} canvasRef={unityCanvasRef} />
+          <Unity unityProvider={unityProvider} canvasRef={unityCanvasRef} 
+                devicePixelRatio={window.devicePixelRatio}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "block",
+                  imageRendering: "crisp-edges",
+                  objectFit: "cover", // Ensures game fills container without distortion
+                }}/>
 
           {/* Display the current multiplier and plane crash state
           <p>Current Multiplier: {inputValue.toFixed(2)}</p>

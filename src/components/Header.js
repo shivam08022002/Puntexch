@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaHome, FaUser, FaSignOutAlt, FaWallet } from 'react-icons/fa';
-import Navigation from './Navigation';
+// import Navigation from './Navigation';
 // import Footer from './Footer';
 import './Header.css';
 import LoginPage from '../pages/LoginPage';
