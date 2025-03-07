@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import MatchTable from '../components/MatchTable';
 import './SportPage.css';
 import { httpHelpers } from "../services/httpHelpers";
+import PlaceBetDialog from '../components/PlaceBetDialog';
+import { toast } from 'react-hot-toast';
+import CustomToastWithOverlay from '../components/CustomToastWithOverlay';
 
 const SportPage = ({ isLoggedIn, logOut, selectedSport }) => {
   console.log("selectedSport", selectedSport);
@@ -95,8 +98,59 @@ const SportPage = ({ isLoggedIn, logOut, selectedSport }) => {
 
   const currentBanner = banners[currentSportName] || banners['cricket'];
 
+  const [showPlaceBetDialog, setShowPlaceBetDialog] = useState();
+  const [preBetPreferenceData, setPreBetPreferenceData] = useState();
+  const [betType, setBetType] = useState();
+  const [marketType, setMarketType] = useState();
+  const [candidateRate, setCandidateRate] = useState();
+  const [nation, setNation] = useState();
+  const [candidate, setCandidate] = useState();
+  const [backSelected, setBackSelected] = useState();
+  const [waitTime, setWaitTime] = useState();
+  const [candidateMarketId, setCandidateMarketId] = useState();
+  const [yesValue, setYesValue] = useState();
+  const [noValue, setNoValue] = useState();
+
+  function onMarketPositionClick(preBetPreferenceData, betType, marketType, candidateRate, nation, candidate, waitTime, backSelected, marketId, yesValue, noValue) {
+    console.log("onMarketPositionClick", "onMarketPositionClick")
+    setShowPlaceBetDialog(true);
+    setBetType(betType);
+    setMarketType(marketType);
+    setCandidateRate(candidateRate);
+    setNation(nation);
+    setCandidate(candidate);
+    setWaitTime(waitTime);
+    setBackSelected(backSelected);
+    setCandidateMarketId(marketId);
+    setYesValue(yesValue);
+    setNoValue(noValue);
+  }
+
+  function showToastMessage(message, success) {
+    // showToast();
+    const toastId = toast.custom(
+      (t) => (
+        <CustomToastWithOverlay
+          message={message}
+          onClose={() => toast.dismiss(toastId)}
+          success={success}
+        />
+      ),
+      {
+        position: 'top-center', // Center the toast
+        duration: 2000, // Auto close after 5 seconds
+      }
+    );
+
+    // Ensure auto-close by using explicit timeout
+    setTimeout(() => {
+      toast.dismiss(toastId);
+    }, 10);
+  }
+
   return (
     <div className="sport-page">
+      {showPlaceBetDialog && preBetPreferenceData && <PlaceBetDialog logOut={logOut} yesValue={yesValue} noValue={noValue} showToastMessage={showToastMessage} candidateMarketId={candidateMarketId} waitTime={waitTime} backSelected={backSelected} betType={betType} marketType={marketType} candidateRate={candidateRate} nation={nation} candidate={candidate} setShowPlaceBetDialog={setShowPlaceBetDialog} preBetPreferenceData={preBetPreferenceData}></PlaceBetDialog>}
       {selectedSport !== "inplay" && (
         <div
           className="sport-banner"
@@ -125,6 +179,7 @@ const SportPage = ({ isLoggedIn, logOut, selectedSport }) => {
             matches={matches}
             matchType={matchType}
             onMatchTypeChange={handleMatchTypeChange}
+            onMarketPositionClick={onMarketPositionClick}
           />
         ) : (
           <div className="no-matches-message">
