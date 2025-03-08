@@ -1,15 +1,33 @@
 /* Navigation Styling */
-.navigation {
-  background: linear-gradient(45deg, #000000, #000000c8); /* Matches Header gradient */
-  color: #ffffff;
-  padding: 10px 10px; /* Matches Header padding */
-  position: relative; /*
-
-  top: 0;
-  z-index: 100; /* Changed from -0 to ensure navigation stays on top */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Same shadow as Header */
-  transition: background-color 0.3s ease-in-out;
+:root {
+  --nav-bg: linear-gradient(45deg, #000000, #000000c8);
+  --nav-color: #ffffff;
+  --nav-link-bg: rgba(255, 255, 255, 0.1);
+  --nav-hover-bg: linear-gradient(45deg, #ff6b00, #ff4500);
+  --nav-active-bg: linear-gradient(45deg, #ffd700, #ffa500);
+  --nav-color-active: #000000;
 }
+
+:root[data-theme="light"] {
+  --nav-bg: #f5f5f5;
+  --nav-color: #333333;
+  --nav-link-bg: rgba(81, 71, 71, 0.08);
+  --nav-hover-bg: linear-gradient(45deg, #353331, #54514e);
+  --nav-active-bg: linear-gradient(45deg, #054146, #464442);
+  --nav-color-active: #ffffff;
+}
+
+.navigation {
+  background: var(--nav-bg);
+  color: var(--nav-color);
+  padding: 10px 10px;
+  position: relative;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
 button{
   -webkit-tap-highlight-color: transparent;
 }
@@ -17,7 +35,7 @@ button{
   max-width: 1800px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start; /* Changed from space-between since we removed buttons */
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
   white-space: nowrap;
@@ -34,31 +52,32 @@ button{
 /* Navigation Links */
 .nav-link {
   text-decoration: none;
-  color: #ffffff;
-  padding: 10px 20px; /* Matches Header buttons */
-  border-radius: 6px;
+  color: var(--nav-color);
+  padding: 10px 20px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 12px;
   font-size: 16px;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
-  background: rgba(255, 255, 255, 0.1); /* Subtle transparent background */
-  transform: translateY(0); 
+  background: var(--nav-link-bg);
+  transform: translateY(0);
   -webkit-tap-highlight-color: transparent;
 }
 
 .nav-link:hover {
-  background: linear-gradient(45deg, #ff6b00, #ff4500);
+  background: var(--nav-hover-bg);
   color: #ffffff;
-  box-shadow: 0 4px 8px rgba(255, 69, 0, 0.4); 
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+  transform: translateY(-1px);
 }
 
 .nav-link.active {
-  background: linear-gradient(45deg, #ffd700, #ffa500); /* More vibrant golden gradient */
-  color: #000000;
-  font-weight: 700; /* Make active text bolder */
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  background: var(--nav-active-bg);
+  color: var(--nav-color-active);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.25);
 }
 
 /* Navigation Icon */
@@ -77,7 +96,7 @@ button{
 
 /* Navigation Icon Animation */
 .nav-link:hover .nav-icon {
-  transform: none; /* Remove rotation effect */
+  transform: none;
 }
 
 /* Navigation Links */
@@ -87,7 +106,6 @@ button{
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* Remove padding-right since we don't need space for buttons anymore */
 }
 
 .nav-links::-webkit-scrollbar {
@@ -123,10 +141,6 @@ button{
   .navigation {
     padding: 5px;
     padding-top: 8px;
-
-    
-    /* padding-bottom: 0%; */
-
   }
   .navigation::-webkit-scrollbar {
     width: 2px;
@@ -157,4 +171,4 @@ button{
 /* Remove unnecessary keyframe animation */
 @keyframes nav-link-hover {
   /* Remove this entire keyframe as it's not needed */
-} 
+}

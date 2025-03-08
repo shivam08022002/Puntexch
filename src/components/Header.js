@@ -7,6 +7,7 @@ import LoginPage from '../pages/LoginPage';
 import { httpHelpers } from '../services/httpHelpers';
 import TokenService from '../services/token-service';
 // import ProfileSidebar from './ProfileSideBar';
+import { Link } from 'react-router-dom';
 
 const Header = ({ 
   isLoginOpen, 
@@ -19,7 +20,7 @@ const Header = ({
   onLoginSuccess,
   user
 }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true); 
   const api = httpHelpers();
   const [balance, setBalance] = useState(0);
   const [balanceError, setBalanceError] = useState(null);
@@ -28,8 +29,12 @@ const Header = ({
 
   const toggleTheme = () => {
     setIsDarkMode((prev) => !prev);
-    document.body.classList.toggle('dark-theme', !isDarkMode);
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  }, []);
 
   useEffect(() => {
     let intervalId;
@@ -77,7 +82,7 @@ const Header = ({
             onClick={toggleSidebar}
             aria-label="Toggle menu"
           >
-            {isSidebarOpen ? <FaTimes /> : <FaBars />}
+            <FaBars />
           </button>
           <a href="/" className="logo">
             <div className="logo-text">
@@ -90,7 +95,7 @@ const Header = ({
           {isLoggedIn && user && (
             <div className="user-section">
               <div className="user-info">
-                <span className="user-name">{user.firstName}</span>
+                {/* <span className="user-name">{user.firstName}</span> */}
                 <span className="user-id">ID: {user.userId}</span>
               </div>
               <div className="balance-container">
@@ -140,7 +145,6 @@ const Header = ({
         </div>
       </header>
 
-      {/* Rest of the component remains unchanged */}
       <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="sidebar-logo">
@@ -150,12 +154,11 @@ const Header = ({
           <button 
             className="sidebar-close"
             onClick={toggleSidebar}
-            aria-label="Close menu"
+            aria-label="Close sidebar"
           >
             <FaTimes />
           </button>
         </div>
-
         <div className="sidebar-content">
           <div className="sidebar-quick-menu">
             <a href="/" className="quick-menu-item">
@@ -164,7 +167,6 @@ const Header = ({
             </a>
             {isLoggedIn ? (
               <>
-               
                 <button 
                   className="quick-menu-item logout-btn"
                   onClick={onLogout}
@@ -183,14 +185,9 @@ const Header = ({
               </button>
             )}
           </div>
-
           {/* <nav className="sidebar-nav">
             <Navigation />
           </nav> */}
-
-          {/* <div className="sidebar-footer">
-            <Footer />
-          </div> */}
         </div>
       </aside>
 

@@ -1,13 +1,34 @@
+:root {
+  --virtual-games-bg: rgba(255, 255, 255, 0.163);
+  --virtual-games-header-bg: linear-gradient(135deg, #000000 0%, #12161b 100%);
+  --virtual-games-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.2);
+  --virtual-games-card-bg: #151d25;
+  --virtual-games-card-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  --virtual-games-play-button-bg: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --virtual-games-play-button-color: #ffd700;
+  --virtual-games-header-color: #FFD700;
+  --virtual-games-icon-color: #5a90efe1;
+}
+
+:root[data-theme="light"] {
+  --virtual-games-bg: #cdbbbb;
+  --virtual-games-header-bg: #054146;
+  --virtual-games-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --virtual-games-card-bg: #151d25;
+  --virtual-games-card-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  --virtual-games-play-button-bg: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --virtual-games-play-button-color: #ffd700;
+  --virtual-games-header-color: #FFD700;
+  --virtual-games-icon-color: #5a90efe1;
+}
+
 .virtual-games-section {
-  background: rgba(255, 255, 255, 0.163);
+  background: var(--virtual-games-bg);
   border-radius: 10px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.2);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-     margin-top: 0px;
-     padding: 10px;
-     margin: 0px 5px ;
+  box-shadow: var(--virtual-games-box-shadow);
+  margin-top: 0px;
+  padding: 10px;
+  margin: 0px 5px;
 }
 
 button{
@@ -19,8 +40,7 @@ button{
   justify-content: space-between;
   align-items: center;
   padding: clamp(8px, 2vw, 12px) clamp(10px, 3vw, 20px);
-  /* margin-bottom: 5px; */
-  background: linear-gradient(135deg, #000000 0%, #12161b 100%);
+  background: var(--virtual-games-header-bg);
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.108);
   box-shadow: 0 4px 15px rgba(6, 5, 5, 0.2);
@@ -34,14 +54,14 @@ button{
 
 .game-icon {
   font-size: clamp(20px, 3vw, 26px);
-  color: #5a90efe1;
+  color: var(--virtual-games-icon-color);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .virtual-games-header h2 {
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
-  color: #FFD700;
+  color: var(--virtual-games-header-color);
   margin: 0;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.5px;
@@ -56,10 +76,10 @@ button{
 
 .Play-Button{
   padding: 6px 16px;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  background: var(--virtual-games-play-button-bg);
   border: none;
   border-radius: 20px;
-  color: #ffd700;
+  color: var(--virtual-games-play-button-color);
   font-weight: 700;
   font-size: 12px;
   cursor: pointer;
@@ -83,8 +103,8 @@ button{
   height: 100%;
   padding-bottom: 100%; /* Keeps the card square */
   border-radius: 20px;
-  background: #151d25;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  background: var(--virtual-games-card-bg);
+  box-shadow: var(--virtual-games-card-box-shadow);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden;
@@ -182,7 +202,7 @@ button{
   .virtual-games-grid {
     grid-template-columns: repeat(2, 1fr); /* 3 cards per row on mobile */
   }
-  .game-overlay.h3{
+  .game-overlay h3{
     font-size: 15px;
   }
 }
