@@ -149,17 +149,23 @@ export default function OddsMarket({ onMarketPositionClick, marketType, oddsList
                         <div className="team-row">
                             <div className="team-name">{team.name}</div>
                             {/* <div className="odds-group"> */}
-                            <div key={`back-${index}`} className="odds-box back"
-                                onClick={(e) => handleMarketClick(e, index, team.backRate, "back", team.marketId, team.name)}>
-                                <span className="price">{team.backRate}</span>
-                                <span className="amount">{team.backStake}K</span>
+                            <div key={team.backRate + team.backStake + index + "back"}
+                                className="flash-blue">
+                                <div key={`back-${index}`} className="odds-box back"
+                                    onClick={(e) => handleMarketClick(e, index, team.backRate, "back", team.marketId, team.name)}>
+                                    <span className="price">{team.backRate}</span>
+                                    <span className="amount">{team.backStake}K</span>
+                                </div>
                             </div>
                             {/* </div> */}
                             {/* <div className="odds-group"> */}
-                            <div key={`lay-${index}`} className="odds-box lay"
-                                onClick={(e) => handleMarketClick(e, index, team.layRate, "lay", team.marketId, team.name)}>
-                                <span className="price">{team.layRate}</span>
-                                <span className="amount">{team.layStake}K</span>
+                            <div key={team.layRate + team.layStake + index + "lay"}
+                                className="flash-yellow">
+                                <div key={`lay-${index}`} className="odds-box lay"
+                                    onClick={(e) => handleMarketClick(e, index, team.layRate, "lay", team.marketId, team.name)}>
+                                    <span className="price">{team.layRate}</span>
+                                    <span className="amount">{team.layStake}K</span>
+                                </div>
                             </div>
                         </div>
                         // </div>

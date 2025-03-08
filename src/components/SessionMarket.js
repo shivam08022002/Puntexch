@@ -38,15 +38,21 @@ export default function SessionMarket({ onMarketPositionClick, marketType, oddsL
                     </div>
                     {oddsList.map((team, index) => (<div className="team-row">
                         <div className="team-name">{team.marketName}</div>
-                        <div className="odds-box back"
-                            onClick={(e) => handleSessionClick(e, index, team.noRate, "no", team.marketId, team.yesValue, team.noValue, team.marketName)}>
-                            <span className="price">{team.noValue}</span>
-                            <span className="amount">{team.noRate}</span>
+                        <div key={team.noRate + team.noValue + index + "no"}
+                            className="flash-blue">
+                            <div className="odds-box back"
+                                onClick={(e) => handleSessionClick(e, index, team.noRate, "no", team.marketId, team.yesValue, team.noValue, team.marketName)}>
+                                <span className="price">{team.noValue}</span>
+                                <span className="amount">{team.noRate}</span>
+                            </div>
                         </div>
-                        <div className="odds-box lay"
-                            onClick={(e) => handleSessionClick(e, index, team.yesRate, "yes", team.marketId, team.yesValue, team.noValue, team.marketName)}>
-                            <span className="price">{team.yesValue}</span>
-                            <span className="amount">{team.yesRate}</span>
+                        <div key={team.yesRate + team.yesValue + index + "yes"}
+                            className="flash-blue">
+                            <div className="odds-box lay"
+                                onClick={(e) => handleSessionClick(e, index, team.yesRate, "yes", team.marketId, team.yesValue, team.noValue, team.marketName)}>
+                                <span className="price">{team.yesValue}</span>
+                                <span className="amount">{team.yesRate}</span>
+                            </div>
                         </div>
                     </div>))}
                     <div className="bet-limits">
