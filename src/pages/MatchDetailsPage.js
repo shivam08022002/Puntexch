@@ -277,7 +277,7 @@ const MatchDetailsPage = ({ isLoggedIn, logOut }) => {
         }
 
         {tossContainer && tossContainer.marketList && tossContainer.marketList.length > 0 && <OddsMarket onMarketPositionClick={onMarketPositionClick} marketType={TOSS_ODDS} oddsList={tossContainer.marketList} minBet={tossContainer.minBet} maxBet={tossContainer.maxBet} waitTime={tossContainer.waitTime} />}
-        {matchOddsContainer && matchOddsContainer.marketList && <OddsMarket onMarketPositionClick={onMarketPositionClick} marketType={MATCH_ODDS} oddsList={matchOddsContainer.marketList} minBet={matchOddsContainer.minBet} maxBet={matchOddsContainer.maxBet} waitTime={matchOddsContainer.waitTime} />}
+        {matchOddsContainer && matchOddsContainer.marketList && tossContainer.marketList.length > 0 && <OddsMarket onMarketPositionClick={onMarketPositionClick} marketType={MATCH_ODDS} oddsList={matchOddsContainer.marketList} minBet={matchOddsContainer.minBet} maxBet={matchOddsContainer.maxBet} waitTime={matchOddsContainer.waitTime} />}
         {bookmakerOddsContainer && bookmakerOddsContainer.marketList && bookmakerOddsContainer.marketList.length > 0 && <OddsMarket onMarketPositionClick={onMarketPositionClick} marketType={BOOKMAKER} oddsList={bookmakerOddsContainer.marketList} minBet={bookmakerOddsContainer.minBet} maxBet={bookmakerOddsContainer.maxBet} waitTime={bookmakerOddsContainer.waitTime} />}
 
         <div className="markets-container">
