@@ -1,0 +1,679 @@
+/* Main Container */
+.match-details-container {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  background: #e9e9e9;
+  padding: 5px;
+  padding-top: 5px;
+  box-shadow:0 4px 6px rgba(0, 0, 0, 0.7);
+  
+}
+.match-type-header{
+  display: flex;
+  justify-content:start;
+  align-items: center;
+  color: #333333;
+  font-weight: 500;
+}
+
+.back-header,.lay-header{
+color: #333333;
+font-weight: 500;
+}
+
+.match-details-content {
+  width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1px;
+  box-shadow:0 4px 6px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: row;
+}
+.match-details-container{
+  display: flex;
+  flex-direction: row;
+  /* gap: 10px; */
+  /* padding: 0px; */
+  /* margin: 0px; */
+}
+
+button {
+  /* all: unset; */
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+/* Scoreboard Section */
+.match-details-main {
+  background: #fff;
+  border-radius: 4px;
+  /* padding: 15px; */
+  /* margin-bottom: 15px; */
+  display: flex;
+  flex-direction: column;
+}
+.match-details-content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0px;
+  margin: 0px;
+}
+/* Graph section */
+.graph-section {
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+  padding: 0px;
+  border-radius: 8px 0 0 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.scrbrd-container{
+  height: 300px;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+}
+
+/* Extra Small Screens (Phones) */
+@media (max-width: 1024px) {
+  .match-details-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 0px;
+    margin: 0px;
+  }
+  .match-details-content{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 0px;
+    margin: 0px;
+  }
+}
+@media (max-width: 500px) {
+  .scrbrd-container {
+    padding: 0;
+    width: 100%;
+    margin: auto;
+    height: 200px;
+  }
+  .graph-section {
+    padding: 0rem;
+    height: 100%;
+  }
+  .match-details-container{
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    /* padding: 0px; */
+    margin: 0px;
+  }
+}
+
+/* Small Screens (Tablets & Small Devices) */
+@media (max-width: 767px) {
+  .match-details-container{
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    padding: 5px;
+    /* margin: 0px; */
+  }
+  .scrbrd-container {
+    padding: 0;
+    width: 100%;
+    margin: auto;
+    height: 200px;
+  }
+  .graph-section {
+    padding: 0rem;
+    height: 100%;
+
+  }
+  .graph-team {
+    font-size: 1rem;
+  }
+
+  .graph-line {
+    height: 3px;
+  }
+
+  .graph-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+}
+
+/* Match Header */
+.match-header {
+  background: linear-gradient(135deg, #323265 0%, #6576ca 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5px;
+  padding-left: 5px;
+  /* margin-bottom: 5px; */
+  margin-top: 5px;
+  /* justify-content: center; */
+  flex-direction: row;
+  /* align-items: center; */
+  color: rgb(255, 255, 255);
+}
+.match-header,h1{
+  display: flex;
+  flex-direction: column ;
+  /* justify-content: center; */
+}
+.match-time {
+  display: flex;
+  flex-direction: row;
+  align-self: start;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.status {
+  background: linear-gradient(135deg, #43a047 0%, #388e3c 100%);
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.match-teams h1 {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #ffffff;
+}
+
+/* Market Navigation */
+.market-types-nav {
+  background: linear-gradient(135deg, #323265 0%, #6576ca 100%);
+  border-radius: 0px 0px 0 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-top: 1px;
+  /* padding: 0 15px; */
+}
+
+.market-content {
+  padding: 0px;
+}
+
+.market-types-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.market-type-btn {
+  padding: 12px 15px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  position: relative;
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.market-type-btn.active {
+  background: linear-gradient(135deg, #e53935 0%, #d32f2f 100%);
+  color: white;
+}
+
+.market-type-btn:hover {
+  color: white;
+  background: linear-gradient(135deg, #e53935 0%, #d32f2f 100%);
+}
+/* Match Odds Section */
+.market-section {
+  background: #fefefe;
+  /* border-radius: 4px; */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  /* margin-bottom: 15px; */
+}
+
+.market-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #dde3ed 0%, #dae2ef 100%);
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  border-bottom: 1px solid #eee;
+}
+
+.market-title {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 14px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.cash-out {
+  background: #f9d10a;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #000;
+}
+
+/* Odds Table */
+.odds-table {
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  background: #f8f9fa;
+}
+
+.back-header, .lay-header {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4px;
+}
+
+.back-header div {
+  background: rgb(114, 196, 255);
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+.lay-header div {
+  background: rgb(255, 150, 150);
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+.team-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.team-name {
+  font-size: 13px;
+  color: #333;
+}
+
+.odds-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.odds-box {
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+
+.odds-box.back {
+  background: rgb(114, 196, 255);
+  color: #000;
+  font-weight: 500;
+}
+
+.odds-box.lay {
+  background: rgb(255, 150, 150);
+  color: black;
+  font-weight: 500;
+}
+
+.odds-box.suspended {
+  background: #f8d7da;
+  color: #970f1dae;
+  font-weight: 1000;
+  grid-column: span 2;
+  /* overflow: hidden; */
+  text-align: center;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.back-header{
+  height: 45px;
+}
+.amount {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Live TV Section */
+
+.live-tv-section {
+  background: #fff;
+  /* color: #eee; */
+  border-radius: 4px;
+  /* font-weight: 600; */
+  overflow: hidden;
+  padding: 0%;
+  margin: 0%;
+  height: 100%;
+  /* display: flex;
+  flex-direction: column;
+  gap: 10px; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tv-container{
+  background: #000;
+  height: 300px;
+  padding: 0%;
+  margin: 0%;
+}
+
+.no-stream-message{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+}
+
+.live-tv-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #30528c 100%);
+  color: white;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tv-placeholder {
+  border-bottom: 1px solid #c2b8b8;
+  padding: 3px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f1f1f1;
+}
+
+.watch-live-btn {
+  background: #e31e24;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+@keyframes flash-yellow {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+    background: lightyellow;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+    background: lightyellow;
+  }
+}
+
+@keyframes flash-blue {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+    background: skyblue;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+    background: skyblue;
+  }
+}
+
+.flash-yellow {
+  animation: flash-yellow 0.4s;
+}
+
+.flash-blue {
+  animation: flash-blue 0.4s;
+}
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .mobile-tabs {
+    display: flex;
+    background: #ffffff; /* Clean white background */
+    padding: 10px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #e0e0e0; /* Subtle bottom border */
+    justify-content: space-around; /* Evenly space items */
+    align-items: center;
+}
+
+/* Optional: Improve button design inside tabs */
+.mobile-tabs button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.mobile-tabs button:hover {
+    color: #1c427c; /* Subtle hover color */
+}
+
+.mobile-tabs button.active {
+    color: #1c427c;
+    font-weight: bold;
+    border-bottom: 2px solid #1c427c; /* Underline for active tab */
+    padding-bottom: 6px;
+}
+
+  .scrbrd-container{
+    height: 250px;
+  }
+  .tv-container{
+    background: #000;
+    height: 250px;
+  }
+  .mobile-tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    background: none;
+    color: #666;
+    font-weight: 700;
+  }
+  @media screen and (max-width: 500px) {
+    .mobile-tabs {
+      display: flex;
+      background: #ffffff; /* Clean white background */
+      padding: 10px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid #e0e0e0; /* Subtle bottom border */
+      justify-content: space-around; /* Evenly space items */
+      align-items: center;
+  }
+  
+  /* Optional: Improve button design inside tabs */
+  .mobile-tabs button {
+      background: none;
+      border: none;
+      padding: 8px 12px;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+  }
+  
+  .mobile-tabs button:hover {
+      color: #1c427c; /* Subtle hover color */
+  }
+  
+  .mobile-tabs button.active {
+      color: #1c427c;
+      font-weight: bold;
+      border-bottom: 2px solid #1c427c; /* Underline for active tab */
+      padding-bottom: 6px;
+  }
+  
+      .scrbrd-container{
+        height: 200px;
+      }
+      .tv-container{
+        background: #000;
+        height: 200px;
+      }
+  }
+
+  .match-details-main, .live-tv-section{
+    margin: 10px;
+    display: none;
+    /* margin: 0px; */
+  }
+
+  .match-details-main.active,
+  .live-tv-section.active {
+    display: block;
+  }
+  .table-header{
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr;
+    gap: 4px;
+    padding: 8px;
+    background: #f8f9fa;
+  }
+  .back-header,.lay-header{
+    /* grid-template-columns: 230px 1fr 1fr; */
+    font-weight: 500;
+    width: 55px;
+    height: 35px;
+    justify-self: end;
+  }
+  .team-row{
+    grid-template-columns: 220px 1fr 1fr;
+    font-size: 12px;
+    gap: 4px;
+
+  }
+
+  .odds-group {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .odds-box {
+    height: 45px;
+    display: flex;
+    justify-self: end;
+  }
+  .odds-box.back {
+    background: rgb(114, 196, 255);
+    color: #000;
+    font-weight: 500;
+    width: 55px;
+  }
+  
+  .odds-box.lay {
+    background: rgb(255, 150, 150);
+    color: black;
+    font-weight: 500;
+    width: 55px;
+  }
+  .price {
+    font-size: 12px;
+  }
+
+  .amount {
+    font-size: 9px;
+  }
+}
+@media screen and (max-width: 380px) {
+  
+.table-header{
+  display: grid;
+  grid-template-columns: 190px 1fr 1fr;
+  gap: 4px;
+  padding: 8px;
+  background: #f8f9fa;
+}
+.back-header,.lay-header{
+  /* grid-template-columns: 230px 1fr 1fr; */
+  font-weight: 500;
+  width: 55px;
+  height: 35px;
+  justify-self: end;
+}
+.team-row{
+  grid-template-columns: 190px 1fr 1fr;
+  font-size: 12px;
+  gap: 4px;
+}
+}
+
+/* Desktop Layout */
+@media (min-width: 769px) {
+  .match-details-content {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .mobile-tabs {
+    display: none;
+  }
+}
+
+/* Loading Animation */
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+} 
