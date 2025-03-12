@@ -21,6 +21,7 @@
   background: var(--nav-bg);
   color: var(--nav-color);
   padding: 10px 10px;
+  padding-bottom: 0px;
   position: relative;
   top: 0;
   z-index: 100;
@@ -70,7 +71,7 @@ button{
   background: var(--nav-hover-bg);
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
-  transform: translateY(-1px);
+  transform: translateY(0px);
 }
 
 .nav-link.active {
@@ -115,7 +116,8 @@ button{
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .navigation {
-    padding: 10px 15px;
+    padding: 10px 5px;
+    padding-bottom:0px;
   }
 
   .nav-content {
@@ -127,7 +129,11 @@ button{
     padding: 8px 15px;
     font-size: 14px;
   }
-
+  .nav-links {
+    width: 100%;
+    margin-bottom: 10px;
+    gap: 15px;
+  }
   .nav-icon {
     font-size: 20px;
   }
@@ -140,7 +146,8 @@ button{
 @media (max-width: 480px) {
   .navigation {
     padding: 5px;
-    padding-top: 8px;
+    padding-top: 7px;
+    padding-bottom: 0px;
   }
   .navigation::-webkit-scrollbar {
     width: 2px;
@@ -151,6 +158,7 @@ button{
 
   .nav-links {
     width: 100%;
+    margin-bottom: 7px;
     gap: 15px;
   }
 

@@ -15,7 +15,7 @@
   --header-color: #ffffff;
   --theme-icon-color: #ffffff;
   --user-name-color: #ffffff;
-  --user-id-color: #ffffff;
+  --user-id-color: #ffffff;  /* Changed from #201d1d to #ffffff */
   --balance-text-color: #ffffff;
   --menu-button-color: #ffffff;
   --logo-gradient: linear-gradient(45deg, #ffffff, #f0f0f0);
@@ -56,13 +56,17 @@ button{
   font-size: 12px;
   color: var(--user-id-color);
   opacity: 0.8;
+  font-weight: 600;
+}
+.quick-menu-item{
+  gap: 10px;
 }
 
 .balance-container {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(253, 215, 0, 0.049);
+  /* background: rgba(253, 215, 0, 0.049); */
   padding: 8px 14px;
   border-radius: 6px;
   border: 1px solid rgba(253, 215, 0, 0.3);
@@ -302,7 +306,7 @@ button{
     font-size: 1rem;
  }
   .header .auth-buttons {
-    gap: 8px;
+    gap: 2px;
   }
 
   .theme-toggle {
@@ -457,9 +461,7 @@ button{
   height: 70px;
   display: flex;
   align-items: center;
-  padding: 0 15px;
-  padding-bottom: 15px;
-  padding-left: 1px;
+  padding:15px;
   gap: 30px;
   z-index: 2001;
   transition: left 0.3s ease-in-out;
@@ -572,10 +574,12 @@ button{
   .sidebar-logo{
     width: 60px;
     height: 50px;
-    padding-left:25px ;
   }
   .sidebar-logo-text {
-    font-size: 24px;
+    font-size: 20px;
+  }
+  .sidebar-header{
+    padding-bottom: 15px;
   }
 }
 
@@ -583,23 +587,26 @@ button{
   .sidebar-header {
     width: 300px;
     /* padding: 0 35px; */
-    height: 60px;
+    height: 70px;
   }
   .sidebar-logo{
     width: 40px;
     height: 40px;
-    padding-left:25px ;
+    /* padding-left:25px ; */
   }
 
   .sidebar-logo-text {
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
     padding: 0px;
+    /* padding-bottom: 0px; */
   }
 
   .sidebar-close {
     font-size: 20px;
-    padding: 6px;
+    /* padding-top:25px; */
+    /* bottom: 0%; */
+    /* text-align: end; */
   }
 }
 
@@ -809,7 +816,7 @@ button{
 .user-section {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 3px;
   color: var(--user-id-color);
 }
 
@@ -835,27 +842,12 @@ button{
   color: var(--user-id-color);
   opacity: 0.8;
 }
-
-:root[data-theme="light"].sidebar-quick-menu {
-  padding: 25px 20px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
-  border-bottom: 2px solid rgba(255, 255, 255, 0.397);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  position: relative;
+.quick-menu-item{
+  gap: 5px;
 }
+/* 
 :root[data-theme="light"].user-section-quick-menu{
 
   color: white;
   /* -webkit-text-fill-color: #f0f0f0; */
-}
-:root[data-theme="light"].sidebar-quick-menu::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
-}
+/* } */

@@ -3,7 +3,7 @@
   width: 100%;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+  /* border-bottom: 1px solid rgba(255, 215, 0, 0.2); */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -59,7 +59,7 @@
 /* Light theme styles */
 :root[data-theme="light"] .marquee-container {
   background: #054146cb;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.15); */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
