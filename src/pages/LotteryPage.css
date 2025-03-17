@@ -3,6 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   min-height: calc(100vh - 80px);
+  background-color:var( --lottery-page-bg);
 }
 
 .lottery-container {
@@ -10,6 +11,7 @@
   gap: 30px;
   grid-template-columns: 1fr;
   max-width: 800px;
+  /* background:(--lottery-page-bg); */
   margin: 0 auto;
 }
 
